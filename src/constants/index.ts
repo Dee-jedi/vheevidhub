@@ -3,8 +3,8 @@
 // ============================================================
 
 /** Application metadata */
-export const APP_NAME = 'VeeVid Hub';
-export const APP_DESCRIPTION = 'Your premier video content hub';
+export const APP_NAME = 'Vheevid Hub';
+export const APP_DESCRIPTION = 'World class services to make your brand stand out.';
 
 /** API */
 export const API_BASE_URL =
