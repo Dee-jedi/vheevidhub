@@ -29,29 +29,50 @@ export function Team() {
 
       {/* --- Meet Our Team Section --- */}
       <section className="pt-24 pb-32 sm:pt-32 sm:pb-56 px-4 sm:px-6 max-w-6xl mx-auto overflow-hidden">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={staggerContainer}
-          className="flex flex-col items-center text-center"
-        >
-          <motion.h2
-            variants={fadeUpVariants}
-            className="text-[28px] sm:text-[36px] lg:text-[44px] font-semibold text-[#111] mb-6 tracking-tight"
-          >
-            Meet <span className="relative inline-block font-bold">
-              Our Team?
+        <div className="flex flex-col items-center text-center">
+          <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-semibold text-[#111] mb-6 tracking-tight">
+            {"Meet ".split("").map((char, i) => (
+              <motion.span 
+                key={`meet-${i}`} 
+                initial={{ opacity: 0 }} 
+                whileInView={{ opacity: 1 }} 
+                viewport={{ once: true }} 
+                transition={{ duration: 0.1, delay: i * 0.06 }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
+            <span className="relative inline-block font-bold">
+              {"Our Team?".split("").map((char, i) => (
+                <motion.span 
+                  key={`team-${i}`} 
+                  initial={{ opacity: 0 }} 
+                  whileInView={{ opacity: 1 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.1, delay: (5 + i) * 0.06 }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
               {/* Red underline */}
               <svg
                 className="absolute -bottom-1 left-0 w-full h-[clamp(6px,1vw,10px)]"
                 viewBox="0 0 120 10"
                 fill="none"
               >
-                <path d="M2 7C20 3 40 2 60 3C80 4 100 5 118 3" stroke="#D62500" strokeWidth="3" strokeLinecap="round" />
+                <motion.path 
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  whileInView={{ pathLength: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 14 * 0.06 }}
+                  d="M2 7C20 3 40 2 60 3C80 4 100 5 118 3" 
+                  stroke="#D62500" 
+                  strokeWidth="3" 
+                  strokeLinecap="round" 
+                />
               </svg>
             </span>
-          </motion.h2>
+          </h2>
 
           <motion.p
             variants={fadeUpVariants}
@@ -95,7 +116,7 @@ export function Team() {
               </motion.div>
             ))}
           </motion.div>
-        </motion.div>
+        </div>
       </section>
     </div>
   );

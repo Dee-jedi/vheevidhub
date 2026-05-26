@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 const stagger: Variants = {
   hidden: { opacity: 0 },
@@ -29,7 +30,18 @@ const HERO_IMAGES = [
   { src: '/Images/hero_pix5.jpg', alt: 'Learning and growth', rotate: 16, zIndex: 5 },
 ];
 
+const WORDS = ["Edit.", "Brand.", "Learn."];
+
 export function Hero() {
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % WORDS.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative w-full bg-white overflow-hidden">
       {/* Content area */}
@@ -42,7 +54,7 @@ export function Hero() {
         {/* Main heading */}
         <motion.h1
           variants={fadeDown}
-          className="text-[clamp(2.5rem,7vw,4.5rem)] font-bold text-[#111111] leading-[1.1] tracking-tight mt-6"
+          className="text-[clamp(2.2rem,8vw,4.5rem)] font-bold text-[#111111] leading-[1.1] tracking-tight mt-6"
         >
           <span className="relative inline-block whitespace-nowrap">
             {/* Exact Provided Star Icon Above 'Design' — Subtle Pulsating & Glowing */}
@@ -87,9 +99,21 @@ export function Hero() {
               />
             </svg>
           </span>{' '}
-          Develop. Edit.
-          <br />
-          Brand. Learn.
+          Develop.{' '}
+          <span className="inline-grid overflow-hidden align-bottom h-[1.1em]">
+            <AnimatePresence mode="popLayout" initial={false}>
+              <motion.span
+                key={wordIndex}
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                exit={{ y: "-100%", opacity: 0 }}
+                transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+                className="col-start-1 row-start-1"
+              >
+                {WORDS[wordIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -176,7 +200,7 @@ export function Hero() {
                 2. Overlap using negative horizontal margins
               */
               className="relative shrink-0 cursor-pointer 
-                         w-20 h-20 -mx-1.5 
+                         w-16 h-16 -mx-2 
                          sm:w-36 sm:h-36 sm:-mx-2 
                          md:w-44 md:h-44 md:-mx-2.5 
                          lg:w-52 lg:h-52 lg:-mx-3"

@@ -3,18 +3,19 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'Why Us?', href: '/why-us' },
-  { label: 'Our Works', href: '/our-works' },
+  { label: 'Our Works', href: '/works' },
   { label: 'Services', href: '/services' },
 ];
 
 const MOBILE_NAV_LINKS = [
   { label: 'Home', href: '/' },
-  { label: 'Our Works', href: '/our-works' },
+  { label: 'Our Works', href: '/works' },
   { label: 'Services', href: '/services' },
   { label: 'Why Us', href: '/why-us' },
 ];
@@ -62,6 +63,8 @@ const drawerItemVariants: Variants = {
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isDarkHeroPage = pathname === '/services';
 
   // Lock body scroll when drawer is open
   useEffect(() => {
@@ -88,9 +91,9 @@ export function Navbar() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-[0_1px_0_0_rgba(0,0,0,0.05)] ${scrolled
-            ? 'bg-white/80 backdrop-blur-xl'
-            : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+            ? 'bg-white/80 backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,0,0,0.05)]'
+            : 'bg-transparent shadow-none'
           }`}
       >
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
@@ -103,10 +106,10 @@ export function Navbar() {
               height={32}
               priority
             />
-            <span className="text-[15px] font-bold text-gray-900 leading-tight tracking-tight">
+            <span className={`text-[15px] font-bold leading-tight tracking-tight ${!scrolled && isDarkHeroPage ? 'text-white' : 'text-gray-900'}`}>
               <span className="text-[#D62500]">Vheevid</span>
               <br />
-              <span className="text-gray-900">Hub</span>
+              <span className={!scrolled && isDarkHeroPage ? 'text-white' : 'text-gray-900'}>Hub</span>
             </span>
           </Link>
 
@@ -116,7 +119,11 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-[14px] font-medium text-gray-700 rounded-lg transition-colors duration-200 hover:text-gray-900 hover:bg-gray-100/60"
+                className={`px-4 py-2 text-[14px] font-medium rounded-lg transition-colors duration-200 ${
+                  !scrolled && isDarkHeroPage 
+                    ? 'text-gray-300 hover:text-white hover:bg-white/10' 
+                    : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/60'
+                }`}
               >
                 {link.label}
               </Link>
@@ -134,7 +141,11 @@ export function Navbar() {
           {/* Mobile Hamburger Button — Orizon-inspired rounded icon */}
           <button
             onClick={() => setIsOpen(true)}
-            className="md:hidden relative z-10 flex items-center justify-center w-11 h-11 rounded-full bg-gray-100/80 backdrop-blur-sm border border-gray-200/50 transition-all duration-200 hover:bg-gray-200/80 active:scale-95"
+            className={`md:hidden relative z-10 flex items-center justify-center w-11 h-11 rounded-full backdrop-blur-sm transition-all duration-200 active:scale-95 ${
+              !scrolled && isDarkHeroPage 
+                ? 'bg-white/10 border border-white/20 hover:bg-white/20' 
+                : 'bg-gray-100/80 border border-gray-200/50 hover:bg-gray-200/80'
+            }`}
             aria-label="Open menu"
           >
             <div className="flex flex-col items-center justify-center gap-[5px]">

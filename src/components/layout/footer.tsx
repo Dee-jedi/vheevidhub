@@ -3,6 +3,7 @@
 import { motion, Variants } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -15,10 +16,16 @@ const staggerContainer: Variants = {
 };
 
 export function Footer() {
+  const pathname = usePathname();
+  
+  if (pathname === '/contact') {
+    return null;
+  }
+
   return (
     <footer className="w-full bg-white relative">
       {/* --- Need Help With a Project Section (CTA) --- */}
-      <section className="relative py-28 sm:py-48 px-4 sm:px-6 overflow-hidden border-t border-gray-100 flex flex-col items-center text-center">
+      <section className="relative py-28 sm:py-48 px-4 sm:px-6 overflow-hidden flex flex-col items-center text-center">
         {/* Concentric Circles (Spiral Effect) */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-60">
           <div className="absolute w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] rounded-full border border-[#D62500]/20" />
@@ -81,7 +88,7 @@ export function Footer() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={staggerContainer}
-        className="bg-white px-4 sm:px-6 lg:px-12 py-16 sm:py-20 max-w-7xl mx-auto border-t border-gray-100"
+        className="bg-white px-4 sm:px-6 lg:px-12 py-16 sm:py-20 max-w-7xl mx-auto"
       >
         <div className="flex px-4 flex-row justify-between items-center w-full mb-12 sm:mb-16">
           {/* Brand Info */}

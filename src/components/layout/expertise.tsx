@@ -35,20 +35,31 @@ export function Expertise() {
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         
         {/* Header Content */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={staggerContainer}
-          className="text-center mb-16 sm:mb-24"
-        >
-          <motion.h2
-            variants={fadeUpVariants}
-            className="text-[28px] sm:text-[36px] font-semibold text-[#111111] leading-tight tracking-tight mb-6"
-          >
-            Our{' '}
+        <div className="text-center mb-16 sm:mb-24">
+          <h2 className="text-[28px] sm:text-[36px] font-semibold text-[#111111] leading-tight tracking-tight mb-6">
+            {"Our ".split("").map((char, i) => (
+              <motion.span 
+                key={`our-exp-${i}`} 
+                initial={{ opacity: 0 }} 
+                whileInView={{ opacity: 1 }} 
+                viewport={{ once: true }} 
+                transition={{ duration: 0.1, delay: i * 0.06 }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
             <span className="relative inline-block whitespace-nowrap font-bold">
-              Expertise
+              {"Expertise".split("").map((char, i) => (
+                <motion.span 
+                  key={`exp-${i}`} 
+                  initial={{ opacity: 0 }} 
+                  whileInView={{ opacity: 1 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.1, delay: (4 + i) * 0.06 }}
+                >
+                  {char}
+                </motion.span>
+              ))}
               {/* Red underline */}
               <svg
                 className="absolute -bottom-1 left-0 w-full h-[clamp(6px,1vw,10px)]"
@@ -57,7 +68,11 @@ export function Expertise() {
                 xmlns="http://www.w3.org/2000/svg"
                 preserveAspectRatio="none"
               >
-                <path
+                <motion.path
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  whileInView={{ pathLength: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 13 * 0.06 }}
                   d="M2 7C20 3 40 2 60 3C80 4 100 5 118 3"
                   stroke="#D62500"
                   strokeWidth="3"
@@ -65,7 +80,7 @@ export function Expertise() {
                 />
               </svg>
             </span>
-          </motion.h2>
+          </h2>
 
           <motion.p
             variants={fadeUpVariants}
@@ -73,7 +88,7 @@ export function Expertise() {
           >
             Our blend of creativity and technical finesse ensures bespoke solutions that elevate brands and captivate audiences, leaving an unforgettable imprint on the design landscape.
           </motion.p>
-        </motion.div>
+        </div>
 
         {/* Pills Container */}
         <motion.div

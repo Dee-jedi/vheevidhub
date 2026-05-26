@@ -98,20 +98,31 @@ export function Inspirations() {
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
 
         {/* Header Content */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
-          variants={staggerContainer}
-          className="text-center mb-16 sm:mb-20"
-        >
-          <motion.h2
-            variants={fadeUpVariants}
-            className="text-[28px] sm:text-[36px] font-semibold text-[#111111] leading-tight tracking-tight mb-6"
-          >
-            Real{' '}
+        <div className="text-center mb-16 sm:mb-20">
+          <h2 className="text-[28px] sm:text-[36px] font-semibold text-[#111111] leading-tight tracking-tight mb-6">
+            {"Real ".split("").map((char, i) => (
+              <motion.span 
+                key={`real-${i}`} 
+                initial={{ opacity: 0 }} 
+                whileInView={{ opacity: 1 }} 
+                viewport={{ once: true }} 
+                transition={{ duration: 0.1, delay: i * 0.06 }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
             <span className="relative inline-block whitespace-nowrap font-bold">
-              Successes
+              {"Successes".split("").map((char, i) => (
+                <motion.span 
+                  key={`success-${i}`} 
+                  initial={{ opacity: 0 }} 
+                  whileInView={{ opacity: 1 }} 
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.1, delay: (5 + i) * 0.06 }}
+                >
+                  {char}
+                </motion.span>
+              ))}
               {/* Red underline */}
               <svg
                 className="absolute -bottom-1 left-0 w-full h-[clamp(6px,1vw,10px)]"
@@ -120,7 +131,11 @@ export function Inspirations() {
                 xmlns="http://www.w3.org/2000/svg"
                 preserveAspectRatio="none"
               >
-                <path
+                <motion.path
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  whileInView={{ pathLength: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 14 * 0.06 }}
                   d="M2 7C20 3 40 2 60 3C80 4 100 5 118 3"
                   stroke="#D62500"
                   strokeWidth="3"
@@ -128,7 +143,7 @@ export function Inspirations() {
                 />
               </svg>
             </span>
-          </motion.h2>
+          </h2>
 
           <motion.p
             variants={fadeUpVariants}
@@ -136,7 +151,7 @@ export function Inspirations() {
           >
             Clients trust us to transform their challenges into achievements, with every project reflecting our commitment to excellence and impact.
           </motion.p>
-        </motion.div>
+        </div>
 
         {/* Testimonial Block */}
         <motion.div

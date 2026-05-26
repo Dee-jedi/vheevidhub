@@ -39,8 +39,9 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
     >
-      <body className="min-h-screen flex flex-col antialiased bg-white text-gray-900">
+      <body className="min-h-screen flex flex-col antialiased bg-white text-gray-900 overflow-x-hidden">
         <Providers>
           <Navbar />
           {children}

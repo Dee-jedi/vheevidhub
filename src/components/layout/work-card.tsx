@@ -11,8 +11,8 @@ interface WorkCardProps {
 
 export function WorkCard({ title, description, link, imageSrc }: WorkCardProps) {
   return (
-    <motion.div 
-      className="flex-shrink-0 w-[300px] sm:w-[380px] md:w-[420px] flex flex-col gap-4 sm:gap-5 snap-center group bg-white rounded-[32px] p-4 sm:p-5 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100/80"
+    <motion.div
+      className="shrink-0 w-[300px] sm:w-[380px] md:w-[420px] flex flex-col gap-4 sm:gap-5 snap-center group bg-white rounded-[32px] p-4 sm:p-5 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100/80"
       whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
     >
