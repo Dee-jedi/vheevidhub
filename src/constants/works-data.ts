@@ -32,8 +32,8 @@ export const ALL_WORKS_DATA = [
         imageSrc: '/Images/pro_des3.png'
       },
       {
-        title: 'Edtech',
-        description: 'Redesigned a global fashion retailer\'s platform, boosting engagement and conversion rates with AI-driven solutions.',
+        title: 'Local Foodstuffs App',
+        description: 'Seamless mobile app for local foodstuffs delivery, making ordering faster, easier, and more convenient for customers.',
         link: '#', // Coming soon
         imageSrc: '/Images/pro_des4.png'
       }

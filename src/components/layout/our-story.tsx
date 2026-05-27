@@ -34,16 +34,16 @@ export function OurStory() {
   return (
     <section className="relative w-full bg-white py-16 sm:py-24 overflow-hidden">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
-        
+
         {/* Section Heading */}
         <div className="text-center mb-16 sm:mb-24">
           <h2 className="text-[28px] sm:text-[36px] font-semibold text-[#111111] leading-tight tracking-tight mb-6">
             {"Our ".split("").map((char, i) => (
-              <motion.span 
-                key={`our-${i}`} 
-                initial={{ opacity: 0 }} 
-                whileInView={{ opacity: 1 }} 
-                viewport={{ once: true }} 
+              <motion.span
+                key={`our-${i}`}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.1, delay: i * 0.06 }}
               >
                 {char === " " ? "\u00A0" : char}
@@ -51,11 +51,11 @@ export function OurStory() {
             ))}
             <span className="relative inline-block whitespace-nowrap font-bold">
               {"Story".split("").map((char, i) => (
-                <motion.span 
-                  key={`story-${i}`} 
-                  initial={{ opacity: 0 }} 
-                  whileInView={{ opacity: 1 }} 
-                  viewport={{ once: true }} 
+                <motion.span
+                  key={`story-${i}`}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.1, delay: (4 + i) * 0.06 }}
                 >
                   {char}
@@ -86,10 +86,10 @@ export function OurStory() {
 
         {/* Story Rows */}
         <div className="flex flex-col gap-24 sm:gap-32">
-          
+
           {/* Row 1: Text Left, Image Right */}
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -97,15 +97,15 @@ export function OurStory() {
               className="flex-1 relative pr-6 lg:pr-10"
             >
               {/* Subtle Red Timeline Border on Right */}
-              <div className="absolute top-2 bottom-2 right-0 w-[2px] bg-linear-to-b from-transparent via-red-200 to-transparent" />
-              <div className="absolute top-1/4 bottom-1/4 right-0 w-[2px] bg-linear-to-b from-transparent via-[#D62500] to-transparent" />
+              <div className="absolute top-[15%] bottom-[15%] right-0 w-px bg-linear-to-b from-transparent via-red-200/50 to-transparent" />
+              <div className="absolute top-[35%] bottom-[35%] right-0 w-px bg-linear-to-b from-transparent via-[#D62500]/60 to-transparent" />
 
               <h3 className="text-[24px] sm:text-[28px] font-semibold text-[#111111] mb-4">How it all began.</h3>
               <p className="text-[15px] sm:text-[16px] leading-relaxed text-gray-600">
                 Vheevid Hub was born from a desire for trust, reliability, and real value in creative services. Having experienced first-hand the frustration of paying for training and services that were incomplete or unreliable, Determined to do things differently, we created Vheevid Hub, a space where clients and learners could always receive the full value of their investment. From the very first day, the goal was clear: deliver professional design, development, branding, and content services with integrity, while building a foundation for an academy that would train and empower others.
               </p>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -113,8 +113,8 @@ export function OurStory() {
               className="flex-1 w-full"
             >
               <div className="relative w-full aspect-4/3 rounded-3xl overflow-hidden shadow-2xl">
-                <Image 
-                  src="/Images/story_pic1.png" 
+                <Image
+                  src="/Images/story_pic1.png"
                   alt="How it all began"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -126,7 +126,7 @@ export function OurStory() {
 
           {/* Row 2: Image Left, Text Right */}
           <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -134,8 +134,8 @@ export function OurStory() {
               className="flex-1 w-full"
             >
               <div className="relative w-full aspect-4/3 rounded-3xl overflow-hidden shadow-2xl">
-                <Image 
-                  src="/Images/story_pic2.jpg" 
+                <Image
+                  src="/Images/story_pic2.jpg"
                   alt="Growth and Expansion"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -143,7 +143,7 @@ export function OurStory() {
                 />
               </div>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -151,8 +151,8 @@ export function OurStory() {
               className="flex-1 relative pl-6 lg:pl-10"
             >
               {/* Subtle Red Timeline Border on Left */}
-              <div className="absolute top-2 bottom-2 left-0 w-[2px] bg-linear-to-b from-transparent via-red-200 to-transparent" />
-              <div className="absolute top-1/4 bottom-1/4 left-0 w-[2px] bg-linear-to-b from-transparent via-[#D62500] to-transparent" />
+              <div className="absolute top-[15%] bottom-[15%] left-0 w-px bg-linear-to-b from-transparent via-red-200/50 to-transparent" />
+              <div className="absolute top-[35%] bottom-[35%] left-0 w-px bg-linear-to-b from-transparent via-[#D62500]/60 to-transparent" />
 
               <h3 className="text-[24px] sm:text-[28px] font-semibold text-[#111111] mb-4">Growth & Expansion</h3>
               <p className="text-[15px] sm:text-[16px] leading-relaxed text-gray-600">
@@ -163,7 +163,7 @@ export function OurStory() {
 
           {/* Row 3: Text Left, Image Right */}
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -171,15 +171,15 @@ export function OurStory() {
               className="flex-1 relative pr-6 lg:pr-10"
             >
               {/* Subtle Red Timeline Border on Right */}
-              <div className="absolute top-2 bottom-2 right-0 w-[2px] bg-linear-to-b from-transparent via-red-200 to-transparent" />
-              <div className="absolute top-1/4 bottom-1/4 right-0 w-[2px] bg-linear-to-b from-transparent via-[#D62500] to-transparent" />
+              <div className="absolute top-[15%] bottom-[15%] right-0 w-px bg-linear-to-b from-transparent via-red-200/50 to-transparent" />
+              <div className="absolute top-[35%] bottom-[35%] right-0 w-px bg-linear-to-b from-transparent via-[#D62500]/60 to-transparent" />
 
               <h3 className="text-[24px] sm:text-[28px] font-semibold text-[#111111] mb-4">The Hub Ecosystem</h3>
               <p className="text-[15px] sm:text-[16px] leading-relaxed text-gray-600">
                 Today, Vheevid Hub is more than just a service provider—it's an ecosystem of creativity, technology, and education. Our hub integrates multiple services under one roof, allowing clients to access design, development, branding, and content solutions in a coordinated, reliable way. At the same time, Vheevid Hub Academy provides live classes for aspiring creatives, ensuring that learning is interactive, practical, and aligned with real-world projects. This ecosystem represents our vision: a trusted, interconnected space where problems are solved, skills are built, and value is always delivered.
               </p>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -187,8 +187,8 @@ export function OurStory() {
               className="flex-1 w-full"
             >
               <div className="relative w-full aspect-4/3 rounded-3xl overflow-hidden shadow-2xl bg-[#EBEBEB]">
-                <Image 
-                  src="/Images/story_pic3.png" 
+                <Image
+                  src="/Images/story_pic3.png"
                   alt="The Hub Ecosystem"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"

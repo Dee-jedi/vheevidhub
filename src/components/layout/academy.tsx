@@ -98,7 +98,7 @@ export function Academy() {
 
             {/* Title */}
             <h3 className="text-[28px] sm:text-[40px] lg:text-[48px] font-bold text-[#111111] leading-[1.15] tracking-tight mb-4 sm:mb-6">
-              Vheevid Hub Academy —<br className="hidden sm:block" /> Live Classes Coming Soon
+              Vheevid Hub Academy <br className="block" /> Live Classes
             </h3>
 
             {/* Description */}
@@ -132,7 +132,7 @@ export function Academy() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="w-full lg:w-[55%] relative rounded-[20px] sm:rounded-[32px] overflow-hidden shadow-xl aspect-4/3 sm:aspect-video bg-gray-100"
+            className="w-full lg:w-[55%] relative rounded-[20px] sm:rounded-[32px] overflow-hidden shadow-xl aspect-4/3 sm:aspect-video bg-[#111111] flex items-center justify-center"
           >
             <video
               src="/Videos/live_vid1.mp4"
@@ -140,7 +140,7 @@ export function Academy() {
               loop
               muted
               playsInline
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-contain"
             />
           </motion.div>
 

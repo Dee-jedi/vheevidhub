@@ -15,12 +15,12 @@ const staggerContainer: Variants = {
 };
 
 const teamImages = [
-  { src: '/Images/team_member_1_1779712869072.png', classes: 'max-sm:absolute max-sm:left-[calc(50%-42px)] max-sm:top-[20px] sm:-translate-y-4 lg:-translate-y-8' },
-  { src: '/Images/team_member_2_1779712885889.png', classes: 'max-sm:absolute max-sm:left-[calc(50%+72px)] max-sm:top-[86px] sm:translate-y-8 lg:translate-y-12' },
-  { src: '/Images/team_member_3_1779712899847.png', classes: 'max-sm:absolute max-sm:left-[calc(50%+72px)] max-sm:top-[218px] sm:-translate-y-4 lg:-translate-y-8' },
-  { src: '/Images/team_member_4_1779712915516.png', classes: 'max-sm:absolute max-sm:left-[calc(50%-42px)] max-sm:top-[284px] sm:translate-y-8 lg:translate-y-12' },
-  { src: '/Images/team_member_5_1779712928929.png', classes: 'max-sm:absolute max-sm:left-[calc(50%-156px)] max-sm:top-[218px] sm:-translate-y-4 lg:-translate-y-8' },
-  { src: '/Images/team_member_6_1779712942970.png', classes: 'max-sm:absolute max-sm:left-[calc(50%-156px)] max-sm:top-[86px] sm:translate-y-8 lg:translate-y-12' },
+  { src: '/Images/team_mem1.jpg', name: 'Vivian', role: 'Founder and Product Designer', classes: 'max-sm:absolute max-sm:left-[calc(50%-42px)] max-sm:top-[20px] sm:-translate-y-4 lg:-translate-y-8' },
+  { src: '/Images/team_mem2.jpg', name: 'Sopuruchi', role: 'Chief Operating Officer', classes: 'max-sm:absolute max-sm:left-[calc(50%+72px)] max-sm:top-[86px] sm:translate-y-8 lg:translate-y-12' },
+  { src: '/Images/team_mem3.jpg', name: 'Johnso', role: 'Web Developer', classes: 'max-sm:absolute max-sm:left-[calc(50%+72px)] max-sm:top-[218px] sm:-translate-y-4 lg:-translate-y-8' },
+  { src: '/Images/team_mem4.jpg', name: 'Peter', role: 'Brand and graphic Designer', classes: 'max-sm:absolute max-sm:left-[calc(50%-42px)] max-sm:top-[284px] sm:translate-y-8 lg:translate-y-12' },
+  { src: '/Images/team_mem5.jpg', name: 'Sarah', role: 'Social Media Manager', classes: 'max-sm:absolute max-sm:left-[calc(50%-156px)] max-sm:top-[218px] sm:-translate-y-4 lg:-translate-y-8' },
+  { src: '/Images/team_mem6.jpg', name: 'Treasure', role: 'Admin/Project Manager', classes: 'max-sm:absolute max-sm:left-[calc(50%-156px)] max-sm:top-[86px] sm:translate-y-8 lg:translate-y-12' },
 ];
 
 export function Team() {
@@ -31,7 +31,7 @@ export function Team() {
       <section className="pt-24 pb-32 sm:pt-32 sm:pb-56 px-4 sm:px-6 max-w-6xl mx-auto overflow-hidden">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-semibold text-[#111] mb-6 tracking-tight">
-            {"Meet ".split("").map((char, i) => (
+            {"Meet Our ".split("").map((char, i) => (
               <motion.span 
                 key={`meet-${i}`} 
                 initial={{ opacity: 0 }} 
@@ -43,13 +43,13 @@ export function Team() {
               </motion.span>
             ))}
             <span className="relative inline-block font-bold">
-              {"Our Team?".split("").map((char, i) => (
+              {"Team?".split("").map((char, i) => (
                 <motion.span 
                   key={`team-${i}`} 
                   initial={{ opacity: 0 }} 
                   whileInView={{ opacity: 1 }} 
                   viewport={{ once: true }} 
-                  transition={{ duration: 0.1, delay: (5 + i) * 0.06 }}
+                  transition={{ duration: 0.1, delay: (9 + i) * 0.06 }}
                 >
                   {char === " " ? "\u00A0" : char}
                 </motion.span>
@@ -83,7 +83,7 @@ export function Team() {
 
           <motion.div variants={fadeUpVariants} className="mb-16 sm:mb-24 lg:mb-32">
             <Link
-              href="/about"
+              href="/team"
               className="inline-flex items-center justify-center px-8 py-3.5 bg-[#D62500] text-white rounded-full font-medium text-[15px] hover:bg-[#b81f00] transition-colors shadow-sm hover:shadow-lg hover:shadow-red-500/20 active:scale-95"
             >
               Learn More <span className="ml-2 font-bold">→</span>
@@ -107,7 +107,7 @@ export function Team() {
                 <div className="absolute inset-0 rounded-[100px] overflow-hidden shadow-sm border-2 sm:border-4 border-[#FFF0EB] bg-[#FFF0EB]">
                   <Image
                     src={img.src}
-                    alt={`Team Member ${i + 1}`}
+                    alt={`Team Member - ${img.name}`}
                     fill
                     sizes="(max-width: 640px) 33vw, 150px"
                     className="object-cover hover:scale-110 transition-transform duration-700"

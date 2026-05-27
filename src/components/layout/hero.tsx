@@ -24,7 +24,7 @@ const fadeDown: Variants = {
 
 const HERO_IMAGES = [
   { src: '/Images/hero_pix1.jpg', alt: 'Creative design work', rotate: 16, zIndex: 1 },
-  { src: '/Images/hero_pix2.jpg', alt: 'Software development', rotate: 16, zIndex: 2 },
+  { src: '/Images/hero_pix2.png', alt: 'Software development', rotate: 16, zIndex: 2 },
   { src: '/Images/hero_pix3.jpg', alt: 'Book and video editing', rotate: 16, zIndex: 3 },
   { src: '/Images/hero_pix4.jpg', alt: 'Brand building', rotate: 16, zIndex: 4 },
   { src: '/Images/hero_pix5.jpg', alt: 'Learning and growth', rotate: 16, zIndex: 5 },
@@ -100,6 +100,7 @@ export function Hero() {
             </svg>
           </span>{' '}
           Develop.{' '}
+          <br className="sm:hidden" />
           <span className="inline-grid overflow-hidden align-bottom h-[1.1em]">
             <AnimatePresence mode="popLayout" initial={false}>
               <motion.span
@@ -200,7 +201,7 @@ export function Hero() {
                 2. Overlap using negative horizontal margins
               */
               className="relative shrink-0 cursor-pointer 
-                         w-16 h-16 -mx-2 
+                         w-20 h-20 -mx-2.5 
                          sm:w-36 sm:h-36 sm:-mx-2 
                          md:w-44 md:h-44 md:-mx-2.5 
                          lg:w-52 lg:h-52 lg:-mx-3"

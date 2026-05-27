@@ -38,6 +38,7 @@ export function WorkCard({ title, description, link, imageSrc }: WorkCardProps) 
           src={imageSrc}
           alt={title}
           fill
+          sizes="(max-width: 640px) 300px, (max-width: 768px) 380px, 420px"
           className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
         />
       </div>
