@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import { Hero, Expertise, Works, Inspirations, Team } from '@/components/layout';
 
 export const metadata: Metadata = {
-  title: 'Home | Vheevid Hub - Digital Agency',
-  description: 'Vheevid Hub is an end-to-end digital agency dedicated to helping businesses grow through exceptional Product Design, scalable Web Development, and Brand Identity.',
+  title: 'Home | Vheevid Hub - Top Digital Agency in Nigeria',
+  description: 'Vheevid Hub is a premier digital agency in Nigeria dedicated to helping businesses in Lagos, Abuja, and globally grow through exceptional Product Design, Web Development, and Brand Identity.',
 };
 
 export default function HomePage() {

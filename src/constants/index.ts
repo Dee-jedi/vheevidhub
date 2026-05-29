@@ -4,7 +4,7 @@
 
 /** Application metadata */
 export const APP_NAME = 'Vheevid Hub';
-export const APP_DESCRIPTION = 'Vheevid Hub is an end-to-end digital agency dedicated to helping businesses grow through exceptional design and technology. Our core services include UI/UX Product Design, scalable Web & Software Development, Brand Identity Creation, and CRM & Automation setups.';
+export const APP_DESCRIPTION = 'Vheevid Hub is a premier end-to-end digital agency in Nigeria, dedicated to helping businesses in Lagos, Abuja, Kano, and globally grow through exceptional design and technology. Our core services include UI/UX Product Design, scalable Web Development, Brand Identity Creation, and CRM Automation.';
 
 /** API */
 export const API_BASE_URL =
