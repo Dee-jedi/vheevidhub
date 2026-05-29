@@ -18,7 +18,7 @@ const CAPABILITIES = [
   },
   {
     id: 'software-engineering',
-    title: 'Engineering',
+    title: 'Web Development',
     description: 'Our robust engineering team builds scalable, high-performance web and mobile applications. We use cutting-edge modern stacks to ensure your software is fast, secure, and future-proof.',
     tags: ['Web Development', 'Mobile Apps', 'Cloud Architecture', 'API Integrations'],
     icon: (
@@ -40,7 +40,7 @@ const CAPABILITIES = [
   },
   {
     id: 'crm-growth',
-    title: 'CRM & Growth',
+    title: 'CRM & Automation',
     description: 'Scaling requires systems. We implement and optimize powerful CRM automations and growth marketing strategies that turn leads into loyal customers.',
     tags: ['Marketing Automation', 'SEO Strategy', 'Data Analytics', 'HubSpot'],
     icon: (

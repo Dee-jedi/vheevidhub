@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const PROJECT_TYPES = ['Product Design', 'Engineering', 'Brand Identity', 'CRM & Growth', 'Other'];
+const PROJECT_TYPES = ['Product Design (UI/UX)', 'Software/Web Development', 'Brand Identity', 'CRM & Automation', 'Book Editing', 'Other'];
 const BUDGETS = ['< ₦1M', '₦1M - ₦5M', '₦5M - ₦15M', '₦15M+'];
 const TIMELINES = ['< 1 Month', '1 - 3 Months', '3 - 6 Months', '6+ Months'];
 
@@ -33,12 +33,12 @@ I'd like to discuss a potential project. Here are my details:
 *Message:*
 ${formData.message}`;
 
-    const whatsappUrl = `https://wa.me/2348066966442?text=${encodeURIComponent(text)}`;
+    const whatsappUrl = `https://wa.me/2347010913999?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   const handleEmail = () => {
-    const text = `Hello Veevid Hub,
+    const text = `Hello Vheevid Hub,
 
 I'd like to discuss a potential project. Here are my details:
 

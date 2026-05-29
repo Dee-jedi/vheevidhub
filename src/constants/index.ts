@@ -4,7 +4,7 @@
 
 /** Application metadata */
 export const APP_NAME = 'Vheevid Hub';
-export const APP_DESCRIPTION = 'World class services to make your brand stand out.';
+export const APP_DESCRIPTION = 'Vheevid Hub is an end-to-end digital agency dedicated to helping businesses grow through exceptional design and technology. Our core services include UI/UX Product Design, scalable Web & Software Development, Brand Identity Creation, and CRM & Automation setups.';
 
 /** API */
 export const API_BASE_URL =

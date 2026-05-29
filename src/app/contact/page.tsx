@@ -1,8 +1,10 @@
 import { ContactForm } from '@/components/layout';
 
-export const metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch with Vheevid Hub to build your next digital product.',
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact Us | Hire a Digital Agency | Vheevid Hub',
+  description: 'Ready to build your next digital product? Get in touch with Vheevid Hub today for Product Design, Web Development, and Branding services.',
 };
 
 export default function ContactPage() {

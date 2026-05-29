@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import { WorksHero, AllWorks, ExecutionPath, Academy } from '@/components/layout';
+
+export const metadata: Metadata = {
+  title: 'Our Works | Portfolio | Vheevid Hub',
+  description: 'View our featured projects and success stories. From SaaS products to compelling brand identities, see how Vheevid Hub delivers digital excellence.',
+};
 
 export default function WorksPage() {
   return (

@@ -24,13 +24,13 @@ const fadeDown: Variants = {
 
 const HERO_IMAGES = [
   { src: '/Images/hero_pix1.jpg', alt: 'Creative design work', rotate: 16, zIndex: 1 },
-  { src: '/Images/hero_pix2.png', alt: 'Software development', rotate: 16, zIndex: 2 },
-  { src: '/Images/hero_pix3.jpg', alt: 'Book and video editing', rotate: 16, zIndex: 3 },
+  { src: '/Images/hero_pix2.png', alt: 'Web development', rotate: 16, zIndex: 2 },
+  { src: '/Images/hero_pix3.png', alt: 'Book and video editing', rotate: 16, zIndex: 3 },
   { src: '/Images/hero_pix4.jpg', alt: 'Brand building', rotate: 16, zIndex: 4 },
   { src: '/Images/hero_pix5.jpg', alt: 'Learning and growth', rotate: 16, zIndex: 5 },
 ];
 
-const WORDS = ["Edit.", "Brand.", "Learn."];
+const WORDS = ["Edit.", "Brand.", "Learn.", "Automate."];
 
 export function Hero() {
   const [wordIndex, setWordIndex] = useState(0);

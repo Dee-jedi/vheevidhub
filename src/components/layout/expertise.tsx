@@ -33,16 +33,16 @@ export function Expertise() {
   return (
     <section className="relative w-full bg-white py-20 sm:py-32 overflow-hidden">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        
+
         {/* Header Content */}
         <div className="text-center mb-16 sm:mb-24">
           <h2 className="text-[28px] sm:text-[36px] font-semibold text-[#111111] leading-tight tracking-tight mb-6">
             {"Our ".split("").map((char, i) => (
-              <motion.span 
-                key={`our-exp-${i}`} 
-                initial={{ opacity: 0 }} 
-                whileInView={{ opacity: 1 }} 
-                viewport={{ once: true }} 
+              <motion.span
+                key={`our-exp-${i}`}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.1, delay: i * 0.06 }}
               >
                 {char === " " ? "\u00A0" : char}
@@ -50,11 +50,11 @@ export function Expertise() {
             ))}
             <span className="relative inline-block whitespace-nowrap font-bold">
               {"Expertise".split("").map((char, i) => (
-                <motion.span 
-                  key={`exp-${i}`} 
-                  initial={{ opacity: 0 }} 
-                  whileInView={{ opacity: 1 }} 
-                  viewport={{ once: true }} 
+                <motion.span
+                  key={`exp-${i}`}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.1, delay: (4 + i) * 0.06 }}
                 >
                   {char}
@@ -106,7 +106,7 @@ export function Expertise() {
           >
             <div className="w-full rotate-[4deg]">
               <div className="flex items-center justify-center w-full h-[36px] sm:h-[76px] bg-[#FFEAE3] text-gray-900 rounded-[10px] sm:rounded-[20px] font-medium text-[8px] xs:text-[9.5px] sm:text-[16px] lg:text-[18px] shadow-sm hover:shadow-lg transition-shadow cursor-default">
-                Product Design
+                Product Design (UI/UX)
               </div>
             </div>
           </motion.div>
@@ -119,7 +119,7 @@ export function Expertise() {
           >
             <div className="w-full rotate-[-4deg]">
               <div className="flex items-center justify-center w-full h-[36px] sm:h-[76px] bg-[#D62500] text-white rounded-[10px] sm:rounded-[20px] font-medium text-[8px] xs:text-[9.5px] sm:text-[16px] lg:text-[18px] shadow-xl shadow-red-900/10 hover:shadow-2xl transition-shadow cursor-default">
-                Software Development
+                Web Development
               </div>
             </div>
           </motion.div>
@@ -145,7 +145,7 @@ export function Expertise() {
           >
             <div className="w-full rotate-[-8deg]">
               <div className="flex items-center justify-center w-full h-[36px] sm:h-[76px] bg-[#D62500] text-white rounded-[10px] sm:rounded-[20px] font-medium text-[8px] xs:text-[9.5px] sm:text-[16px] lg:text-[18px] shadow-xl shadow-red-900/10 hover:shadow-2xl transition-shadow cursor-default">
-                UI/UX Design
+                Automation
               </div>
             </div>
           </motion.div>

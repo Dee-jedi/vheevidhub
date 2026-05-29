@@ -106,9 +106,9 @@ export function Navbar() {
               height={32}
               priority
             />
-            <span className={`flex flex-col justify-center text-[13.5px] font-bold tracking-tight ${!scrolled && isDarkHeroPage ? 'text-white' : 'text-gray-900'}`}>
-              <span className="text-[#D62500] leading-none mb-[2px]">Vheevid</span>
-              <span className={`leading-none ${!scrolled && isDarkHeroPage ? 'text-white' : 'text-gray-900'}`}>Hub</span>
+            <span className={`flex flex-col justify-center text-[13.5px] font-bold tracking-tight mt-[5.2px] ${!scrolled && isDarkHeroPage ? 'text-white' : 'text-gray-900'}`}>
+              <span className="leading-none mb-[2px]">Vheevid</span>
+              <span className={`leading-none ${!scrolled && isDarkHeroPage ? 'text-white' : 'text-[#D62500]'}`}>Hub</span>
             </span>
           </Link>
 
@@ -119,8 +119,8 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`px-4 py-2 text-[14px] font-medium rounded-lg transition-colors duration-200 ${!scrolled && isDarkHeroPage
-                    ? 'text-gray-300 hover:text-white hover:bg-white/10'
-                    : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/60'
+                  ? 'text-gray-300 hover:text-white hover:bg-white/10'
+                  : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/60'
                   }`}
               >
                 {link.label}
@@ -140,8 +140,8 @@ export function Navbar() {
           <button
             onClick={() => setIsOpen(true)}
             className={`md:hidden relative z-10 flex items-center justify-center w-11 h-11 rounded-full backdrop-blur-sm transition-all duration-200 active:scale-95 ${!scrolled && isDarkHeroPage
-                ? 'bg-white/10 border border-white/20 hover:bg-white/20'
-                : 'bg-gray-100/80 border border-gray-200/50 hover:bg-gray-200/80'
+              ? 'bg-white/10 border border-white/20 hover:bg-white/20'
+              : 'bg-gray-100/80 border border-gray-200/50 hover:bg-gray-200/80'
               }`}
             aria-label="Open menu"
           >
@@ -188,12 +188,12 @@ export function Navbar() {
                   <Image
                     src="/Images/vheevid_logo.svg"
                     alt="VheeVid Hub Logo"
-                    width={28}
-                    height={26}
+                    width={30}
+                    height={28}
                   />
-                  <span className="flex flex-col justify-center text-[13px] font-bold tracking-tight text-left">
-                    <span className="text-[#D62500] leading-none mb-[2px]">Vheevid</span>
-                    <span className="text-gray-900 leading-none">Hub</span>
+                  <span className="flex flex-col justify-center text-[12px] font-bold tracking-tight text-left mt-[5.2px] text-gray-900">
+                    <span className="leading-none mb-[2px]">Vheevid</span>
+                    <span className="text-[#D62500] leading-none">Hub</span>
                   </span>
                 </Link>
 

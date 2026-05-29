@@ -20,7 +20,7 @@ const WORKS = [
   {
     title: 'Workspace',
     description: "Redesigned a global fashion retailer's platform, boosting engagement and conversion rates with AI-driven solutions.",
-    link: 'https://evenworkspace.com/',
+    link: 'https://havenworkspace.com/',
     imageSrc: '/Images/pro_des3.png'
   },
   {
@@ -68,11 +68,11 @@ export function Works() {
         <div className="text-center mb-16 sm:mb-24 px-4 sm:px-6 max-w-5xl mx-auto">
           <h2 className="text-[28px] sm:text-[36px] font-semibold text-[#111111] leading-tight tracking-tight mb-6">
             {"Our ".split("").map((char, i) => (
-              <motion.span 
-                key={`our-works-${i}`} 
-                initial={{ opacity: 0 }} 
-                whileInView={{ opacity: 1 }} 
-                viewport={{ once: true }} 
+              <motion.span
+                key={`our-works-${i}`}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.1, delay: i * 0.06 }}
               >
                 {char === " " ? "\u00A0" : char}
@@ -80,11 +80,11 @@ export function Works() {
             ))}
             <span className="relative inline-block whitespace-nowrap font-bold">
               {"Works".split("").map((char, i) => (
-                <motion.span 
-                  key={`works-${i}`} 
-                  initial={{ opacity: 0 }} 
-                  whileInView={{ opacity: 1 }} 
-                  viewport={{ once: true }} 
+                <motion.span
+                  key={`works-${i}`}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.1, delay: (4 + i) * 0.06 }}
                 >
                   {char}

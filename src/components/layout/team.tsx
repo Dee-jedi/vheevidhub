@@ -17,7 +17,7 @@ const staggerContainer: Variants = {
 const teamImages = [
   { src: '/Images/team_mem1.jpg', name: 'Vivian', role: 'Founder and Product Designer', classes: 'max-sm:absolute max-sm:left-[calc(50%-42px)] max-sm:top-[20px] sm:-translate-y-4 lg:-translate-y-8' },
   { src: '/Images/team_mem2.jpg', name: 'Sopuruchi', role: 'Chief Operating Officer', classes: 'max-sm:absolute max-sm:left-[calc(50%+72px)] max-sm:top-[86px] sm:translate-y-8 lg:translate-y-12' },
-  { src: '/Images/team_mem3.jpg', name: 'Johnso', role: 'Web Developer', classes: 'max-sm:absolute max-sm:left-[calc(50%+72px)] max-sm:top-[218px] sm:-translate-y-4 lg:-translate-y-8' },
+  { src: '/Images/team_mem3.jpg', name: 'Johnson', role: 'Web Developer', classes: 'max-sm:absolute max-sm:left-[calc(50%+72px)] max-sm:top-[218px] sm:-translate-y-4 lg:-translate-y-8' },
   { src: '/Images/team_mem4.jpg', name: 'Peter', role: 'Brand and graphic Designer', classes: 'max-sm:absolute max-sm:left-[calc(50%-42px)] max-sm:top-[284px] sm:translate-y-8 lg:translate-y-12' },
   { src: '/Images/team_mem5.jpg', name: 'Sarah', role: 'Social Media Manager', classes: 'max-sm:absolute max-sm:left-[calc(50%-156px)] max-sm:top-[218px] sm:-translate-y-4 lg:-translate-y-8' },
   { src: '/Images/team_mem6.jpg', name: 'Treasure', role: 'Admin/Project Manager', classes: 'max-sm:absolute max-sm:left-[calc(50%-156px)] max-sm:top-[86px] sm:translate-y-8 lg:translate-y-12' },
@@ -32,11 +32,11 @@ export function Team() {
         <div className="flex flex-col items-center text-center">
           <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-semibold text-[#111] mb-6 tracking-tight">
             {"Meet Our ".split("").map((char, i) => (
-              <motion.span 
-                key={`meet-${i}`} 
-                initial={{ opacity: 0 }} 
-                whileInView={{ opacity: 1 }} 
-                viewport={{ once: true }} 
+              <motion.span
+                key={`meet-${i}`}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.1, delay: i * 0.06 }}
               >
                 {char === " " ? "\u00A0" : char}
@@ -44,11 +44,11 @@ export function Team() {
             ))}
             <span className="relative inline-block font-bold">
               {"Team?".split("").map((char, i) => (
-                <motion.span 
-                  key={`team-${i}`} 
-                  initial={{ opacity: 0 }} 
-                  whileInView={{ opacity: 1 }} 
-                  viewport={{ once: true }} 
+                <motion.span
+                  key={`team-${i}`}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.1, delay: (9 + i) * 0.06 }}
                 >
                   {char === " " ? "\u00A0" : char}
@@ -60,15 +60,15 @@ export function Team() {
                 viewBox="0 0 120 10"
                 fill="none"
               >
-                <motion.path 
+                <motion.path
                   initial={{ pathLength: 0, opacity: 0 }}
                   whileInView={{ pathLength: 1, opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, ease: "easeOut", delay: 14 * 0.06 }}
-                  d="M2 7C20 3 40 2 60 3C80 4 100 5 118 3" 
-                  stroke="#D62500" 
-                  strokeWidth="3" 
-                  strokeLinecap="round" 
+                  d="M2 7C20 3 40 2 60 3C80 4 100 5 118 3"
+                  stroke="#D62500"
+                  strokeWidth="3"
+                  strokeLinecap="round"
                 />
               </svg>
             </span>

@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import { Hero, Expertise, Works, Inspirations, Team } from '@/components/layout';
+
+export const metadata: Metadata = {
+  title: 'Home | Vheevid Hub - Digital Agency',
+  description: 'Vheevid Hub is an end-to-end digital agency dedicated to helping businesses grow through exceptional Product Design, scalable Web Development, and Brand Identity.',
+};
 
 export default function HomePage() {
   return (

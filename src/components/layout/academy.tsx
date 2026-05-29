@@ -113,16 +113,10 @@ export function Academy() {
                 href="#manifesto"
                 className="flex w-full min-[480px]:w-auto items-center justify-center h-12 sm:h-14 px-6 sm:px-8 text-[13.5px] sm:text-[15px] font-medium text-white bg-[#D62500] rounded-full transition-all duration-200 hover:bg-[#b81f00] hover:shadow-lg hover:shadow-red-500/20 active:scale-95"
               >
-                Manifesto (Coming Soon)
+                Join waitlist
               </Link>
 
-              {/* Get Notified Button */}
-              <Link
-                href="/contact"
-                className="flex w-full min-[480px]:w-auto items-center justify-center h-12 sm:h-14 px-6 sm:px-8 text-[13.5px] sm:text-[15px] font-medium text-[#D62500] bg-transparent border-2 border-[#D62500] rounded-full transition-all duration-200 hover:bg-[#FFF0EB] active:scale-95"
-              >
-                Get Notified
-              </Link>
+
             </div>
           </motion.div>
 

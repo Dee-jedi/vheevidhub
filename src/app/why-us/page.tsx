@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import { WhyUsHero, OurStory, OurServices, Empowering } from '@/components/layout';
+
+export const metadata: Metadata = {
+  title: 'Why Us | Vheevid Hub',
+  description: 'Learn about the story behind Vheevid Hub, our core values, and meet the creative professionals dedicated to elevating your brand.',
+};
 
 export default function WhyUsPage() {
   return (

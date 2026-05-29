@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, Variants } from 'framer-motion';
+import Image from 'next/image';
 
 const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -10,8 +11,19 @@ const fadeUpVariants: Variants = {
 export function ServicesHero() {
   return (
     <section className="relative w-full min-h-svh bg-[#111111] overflow-hidden flex items-center pt-20 pb-20">
+      {/* Background Image */}
+      <div className="absolute inset-0 pointer-events-none opacity-80">
+        <Image
+          src="/Images/services_hero_bg.png"
+          alt="Services Background"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+
       {/* Abstract Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none mix-blend-screen">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
