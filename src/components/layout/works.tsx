@@ -14,19 +14,19 @@ const WORKS = [
   {
     title: 'Real Estate',
     description: "Redesigned a global fashion retailer's platform, boosting engagement and conversion rates with AI-driven solutions.",
-    link: 'https://www.behance.net/gallery/226594475/Virtual-Inspection-Real-Estate',
+    link: 'https://www.behance.net/gallery/236594475/Virtual-InspectionReal-Estate',
     imageSrc: '/Images/pro_des2.png'
   },
   {
     title: 'Workspace',
     description: "Redesigned a global fashion retailer's platform, boosting engagement and conversion rates with AI-driven solutions.",
-    link: 'https://havenworkspace.com/',
+    link: 'https://avenworkspace.com/',
     imageSrc: '/Images/pro_des3.png'
   },
   {
     title: 'Local Foodstuffs App',
     description: 'Seamless mobile app for local foodstuffs delivery, making ordering faster, easier, and more convenient for customers.',
-    link: '#',
+    link: 'https://www.behance.net/gallery/232950641/Nigerian-Local-Foodstuff-Mobile-App',
     imageSrc: '/Images/pro_des4.png'
   }
 ];

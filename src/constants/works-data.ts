@@ -22,19 +22,19 @@ export const ALL_WORKS_DATA = [
       {
         title: 'Real Estate',
         description: 'Redesigned a global fashion retailer\'s platform, boosting engagement and conversion rates with AI-driven solutions.',
-        link: 'https://www.behance.net/gallery/226594475/Virtual-Inspection-Real-Estate',
+        link: 'https://www.behance.net/gallery/236594475/Virtual-InspectionReal-Estate',
         imageSrc: '/Images/pro_des2.png'
       },
       {
         title: 'Workspace',
         description: 'Redesigned a global fashion retailer\'s platform, boosting engagement and conversion rates with AI-driven solutions.',
-        link: 'https://evenworkspace.com/',
+        link: 'https://avenworkspace.com/',
         imageSrc: '/Images/pro_des3.png'
       },
       {
         title: 'Local Foodstuffs App',
         description: 'Seamless mobile app for local foodstuffs delivery, making ordering faster, easier, and more convenient for customers.',
-        link: '#', // Coming soon
+        link: 'https://www.behance.net/gallery/232950641/Nigerian-Local-Foodstuff-Mobile-App',
         imageSrc: '/Images/pro_des4.png'
       }
     ]
@@ -56,15 +56,15 @@ export const ALL_WORKS_DATA = [
         imageSrc: '/Images/sof_des2.png'
       },
       {
-        title: 'E-Commerce',
+        title: 'Virtual Reality',
         description: 'Redesigned a global fashion retailer\'s platform, boosting engagement and conversion rates with AI-driven solutions.',
-        link: 'https://www.behance.net/gallery/232589559/Virtual-Reality-Scrolling-Animation',
+        link: 'https://www.behance.net/gallery/233599559/Virtual-Reality-Scrolling-Animation',
         imageSrc: '/Images/sof_des3.png'
       },
       {
-        title: 'Veterinary Services',
+        title: 'Juice & More',
         description: 'Redesigned a global fashion retailer\'s platform, boosting engagement and conversion rates with AI-driven solutions.',
-        link: 'https://www.behance.net/gallery/232593641/Nigerian-Local-Foodstuff-Mobile-App',
+        link: 'https://www.behance.net/gallery/232979521/Naturalle-Juice-and-More',
         imageSrc: '/Images/sof_des4.png'
       }
     ]
