@@ -106,10 +106,9 @@ export function Navbar() {
               height={32}
               priority
             />
-            <span className={`text-[15px] font-bold leading-tight tracking-tight ${!scrolled && isDarkHeroPage ? 'text-white' : 'text-gray-900'}`}>
-              <span className="text-[#D62500]">Vheevid</span>
-              <br />
-              <span className={!scrolled && isDarkHeroPage ? 'text-white' : 'text-gray-900'}>Hub</span>
+            <span className={`flex flex-col justify-center text-[13.5px] font-bold tracking-tight ${!scrolled && isDarkHeroPage ? 'text-white' : 'text-gray-900'}`}>
+              <span className="text-[#D62500] leading-none mb-[2px]">Vheevid</span>
+              <span className={`leading-none ${!scrolled && isDarkHeroPage ? 'text-white' : 'text-gray-900'}`}>Hub</span>
             </span>
           </Link>
 
@@ -192,10 +191,9 @@ export function Navbar() {
                     width={28}
                     height={26}
                   />
-                  <span className="text-[13px] font-bold text-gray-900 leading-tight tracking-tight">
-                    <span className="text-[#D62500]">Vheevid</span>
-                    <br />
-                    <span className="text-gray-900">Hub</span>
+                  <span className="flex flex-col justify-center text-[13px] font-bold tracking-tight text-left">
+                    <span className="text-[#D62500] leading-none mb-[2px]">Vheevid</span>
+                    <span className="text-gray-900 leading-none">Hub</span>
                   </span>
                 </Link>
 

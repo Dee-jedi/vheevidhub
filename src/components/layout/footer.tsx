@@ -100,10 +100,9 @@ export function Footer() {
                 width={34}
                 height={32}
               />
-              <span className="text-[15px] sm:text-[17px] font-bold text-gray-900 leading-tight tracking-tight text-left">
-                <span className="text-[#D62500]">Vheevid</span>
-                <br />
-                <span className="text-gray-900">Hub</span>
+              <span className="flex flex-col justify-center text-[13.5px] sm:text-[15px] font-bold text-gray-900 tracking-tight text-left">
+                <span className="text-[#D62500] leading-none mb-[2px]">Vheevid</span>
+                <span className="text-gray-900 leading-none">Hub</span>
               </span>
             </Link>
           </motion.div>

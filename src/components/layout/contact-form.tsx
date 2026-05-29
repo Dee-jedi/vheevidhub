@@ -20,7 +20,7 @@ export function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const text = `Hello Veevid Hub,
+    const text = `Hello Vheevid Hub,
 
 I'd like to discuss a potential project. Here are my details:
 
@@ -133,9 +133,8 @@ ${formData.message}`;
                   <select
                     value={formData.projectType}
                     onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                    className={`w-full bg-transparent border-b border-gray-200 py-3 text-[18px] focus:outline-none focus:border-[#D62500] transition-colors appearance-none pr-8 cursor-pointer ${
-                      formData.projectType === '' ? 'text-gray-400' : 'text-[#111111]'
-                    }`}
+                    className={`w-full bg-transparent border-b border-gray-200 py-3 text-[18px] focus:outline-none focus:border-[#D62500] transition-colors appearance-none pr-8 cursor-pointer ${formData.projectType === '' ? 'text-gray-400' : 'text-[#111111]'
+                      }`}
                   >
                     <option value="" disabled className="text-gray-400">Select a project type</option>
                     {PROJECT_TYPES.map(type => (
@@ -156,9 +155,8 @@ ${formData.message}`;
                     <select
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className={`w-full bg-transparent border-b border-gray-200 py-3 text-[18px] focus:outline-none focus:border-[#D62500] transition-colors appearance-none pr-8 cursor-pointer ${
-                        formData.budget === '' ? 'text-gray-400' : 'text-[#111111]'
-                      }`}
+                      className={`w-full bg-transparent border-b border-gray-200 py-3 text-[18px] focus:outline-none focus:border-[#D62500] transition-colors appearance-none pr-8 cursor-pointer ${formData.budget === '' ? 'text-gray-400' : 'text-[#111111]'
+                        }`}
                     >
                       <option value="" disabled className="text-gray-400">Select budget</option>
                       {BUDGETS.map(budget => (
@@ -178,9 +176,8 @@ ${formData.message}`;
                     <select
                       value={formData.timeline}
                       onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                      className={`w-full bg-transparent border-b border-gray-200 py-3 text-[18px] focus:outline-none focus:border-[#D62500] transition-colors appearance-none pr-8 cursor-pointer ${
-                        formData.timeline === '' ? 'text-gray-400' : 'text-[#111111]'
-                      }`}
+                      className={`w-full bg-transparent border-b border-gray-200 py-3 text-[18px] focus:outline-none focus:border-[#D62500] transition-colors appearance-none pr-8 cursor-pointer ${formData.timeline === '' ? 'text-gray-400' : 'text-[#111111]'
+                        }`}
                     >
                       <option value="" disabled className="text-gray-400">Select timeline</option>
                       {TIMELINES.map(timeline => (
