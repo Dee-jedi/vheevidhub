@@ -112,11 +112,11 @@ export function CoreCapabilities() {
                   onClick={() => setActiveIndex(isActive ? null : i)}
                   className="w-full py-8 sm:py-12 lg:py-16 flex items-center justify-between text-left group"
                 >
-                  <div className="flex items-baseline gap-6 sm:gap-12 lg:gap-16">
-                    <span className={`text-[16px] sm:text-[20px] font-mono transition-colors duration-300 ${isActive ? 'text-[#D62500]' : 'text-gray-400 group-hover:text-gray-600'}`}>
+                  <div className="flex items-center sm:items-baseline gap-4 sm:gap-12 lg:gap-16">
+                    <span className={`text-[15px] sm:text-[20px] font-mono transition-colors duration-300 ${isActive ? 'text-[#D62500]' : 'text-gray-400 group-hover:text-gray-600'}`}>
                       0{i + 1}
                     </span>
-                    <h3 className={`text-[32px] sm:text-[56px] lg:text-[80px] font-bold tracking-tight transition-all duration-300 ${isActive ? 'text-[#111111]' : 'text-gray-400 group-hover:text-gray-700'}`}>
+                    <h3 className={`text-[22px] min-[400px]:text-[26px] sm:text-[56px] lg:text-[80px] font-bold tracking-tight transition-all duration-300 leading-[1.1] ${isActive ? 'text-[#111111]' : 'text-gray-400 group-hover:text-gray-700'}`}>
                       {cap.title}
                     </h3>
                   </div>

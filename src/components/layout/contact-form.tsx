@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const PROJECT_TYPES = ['Product Design (UI/UX)', 'Software/Web Development', 'Brand Identity', 'CRM & Automation', 'Book Editing', 'Other'];
+const PROJECT_TYPES = ['Product Design (UI/UX)', 'Software/Web Development', 'Brand Identity', 'CRM & Automation', 'Book & Video Editing', 'Academy / Training', 'Other'];
 const BUDGETS = ['< ₦1M', '₦1M - ₦5M', '₦5M - ₦15M', '₦15M+'];
 const TIMELINES = ['< 1 Month', '1 - 3 Months', '3 - 6 Months', '6+ Months'];
 

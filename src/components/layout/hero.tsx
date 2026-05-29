@@ -23,11 +23,11 @@ const fadeDown: Variants = {
 };
 
 const HERO_IMAGES = [
-  { src: '/Images/hero_pix1.jpg', alt: 'Creative design work', rotate: 16, zIndex: 1 },
-  { src: '/Images/hero_pix2.png', alt: 'Web development', rotate: 16, zIndex: 2 },
-  { src: '/Images/hero_pix3.png', alt: 'Book and video editing', rotate: 16, zIndex: 3 },
-  { src: '/Images/hero_pix4.jpg', alt: 'Brand building', rotate: 16, zIndex: 4 },
-  { src: '/Images/hero_pix5.jpg', alt: 'Learning and growth', rotate: 16, zIndex: 5 },
+  { src: '/Images/hero_pix1.jpg', alt: 'Creative design work', rotate: 16, zIndex: 1, pill: { label: 'DESIGN', position: 'bottom-left' } },
+  { src: '/Images/hero_pix2.png', alt: 'Web development', rotate: 16, zIndex: 2, pill: { label: 'DEVELOP', position: 'top-left' } },
+  { src: '/Images/hero_pix3.png', alt: 'Book and video editing', rotate: 16, zIndex: 3, pill: { label: 'EDIT', position: 'bottom-center' } },
+  { src: '/Images/hero_pix4.jpg', alt: 'Brand building', rotate: 16, zIndex: 4, pill: { label: 'BRAND', position: 'top-left' } },
+  { src: '/Images/hero_pix5.jpg', alt: 'Learning and growth', rotate: 16, zIndex: 5, pill: { label: 'LEARN', position: 'bottom-right' } },
 ];
 
 const WORDS = ["Edit.", "Brand.", "Learn.", "Automate."];
@@ -235,6 +235,20 @@ export function Hero() {
                   sizes="(max-width: 640px) 100px, (max-width: 1024px) 160px, 190px"
                   priority={i === 2}
                 />
+
+                {/* Pill Tag */}
+                {img.pill && (
+                  <div
+                    className={`absolute z-10 bg-[#D62500]/85 sm:bg-[#D62500] backdrop-blur-[2px] sm:backdrop-blur-none text-white/95 sm:text-white text-[5px] sm:text-[9px] md:text-[10px] font-bold px-1.5 py-px sm:px-2.5 sm:py-1 rounded-full uppercase tracking-wider whitespace-nowrap shadow-none sm:shadow-md
+                      ${img.pill.position === 'top-left' ? 'top-[8%] left-[8%] sm:top-[10%] sm:left-[10%]' : ''}
+                      ${img.pill.position === 'bottom-left' ? 'bottom-[8%] left-[8%] sm:bottom-[10%] sm:left-[10%]' : ''}
+                      ${img.pill.position === 'bottom-right' ? 'bottom-[8%] right-[8%] sm:bottom-[10%] sm:right-[10%]' : ''}
+                      ${img.pill.position === 'bottom-center' ? 'bottom-[8%] sm:bottom-[10%] left-1/2 -translate-x-1/2' : ''}
+                    `}
+                  >
+                    {img.pill.label}
+                  </div>
+                )}
               </motion.div>
             </motion.div>
           ))}

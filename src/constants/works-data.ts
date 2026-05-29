@@ -16,7 +16,7 @@ export const ALL_WORKS_DATA = [
       {
         title: 'Tech Agency',
         description: 'Redesigned a global fashion retailer\'s platform, boosting engagement and conversion rates with AI-driven solutions.',
-        link: 'https://www.vheevidhub.com/',
+        link: 'https://www.vheevidhub.com.ng/',
         imageSrc: '/Images/pro_des1.png'
       },
       {
@@ -41,12 +41,12 @@ export const ALL_WORKS_DATA = [
   },
   {
     id: 'software-development',
-    title: 'Software Development',
+    title: 'Software/Web Dev',
     items: [
       {
         title: 'Tech Agency',
         description: 'We designed a modern digital platform for a growing tech agency, improving online visibility and client engagement.',
-        link: 'https://www.vheevidhub.com/',
+        link: 'https://www.vheevidhub.com.ng/',
         imageSrc: '/Images/sof_des1.png'
       },
       {

@@ -7,28 +7,10 @@ import { useRef } from 'react';
 
 const teamMembers = [
   {
-    src: '/Images/team_mem1.jpg',
-    name: 'Vivian',
-    role: 'Founder & Product Designer',
-    bio: 'Vivian leads the vision and product strategy at Vheevid Hub. With a keen eye for design and a passion for solving complex problems, she ensures every product we build is user-centric and impactful.'
-  },
-  {
-    src: '/Images/team_mem2.jpg',
-    name: 'Sopuruchi',
-    role: 'Chief Operating Officer',
-    bio: 'Sopuruchi ensures smooth day-to-day operations across all departments. He brings structure to our creative chaos, managing resources and driving the team towards operational excellence.'
-  },
-  {
     src: '/Images/team_mem3.jpg',
-    name: 'Johnso',
+    name: 'Johnson',
     role: 'Web Developer',
-    bio: 'Johnso is the technical powerhouse behind our digital solutions. He transforms designs into functional, highly-performant web applications, specializing in modern frontend technologies.'
-  },
-  {
-    src: '/Images/team_mem4.jpg',
-    name: 'Peter',
-    role: 'Brand & Graphic Designer',
-    bio: 'Peter is the creative mind behind our stunning visual identities. He crafts compelling brand stories through graphics, ensuring our clients stand out in their respective markets.'
+    bio: 'Johnson is the technical powerhouse behind our digital solutions. He transforms designs into functional, highly-performant web applications, specializing in modern frontend technologies.'
   },
   {
     src: '/Images/team_mem5.jpg',
@@ -37,10 +19,28 @@ const teamMembers = [
     bio: 'Sarah is the voice of Vheevid Hub online. She curates engaging content, builds community relationships, and strategically manages our digital presence across all social platforms.'
   },
   {
+    src: '/Images/team_mem4.jpg',
+    name: 'Peter',
+    role: 'Brand & Graphic Designer',
+    bio: 'Peter is the creative mind behind our stunning visual identities. He crafts compelling brand stories through graphics, ensuring our clients stand out in their respective markets.'
+  },
+  {
     src: '/Images/team_mem6.jpg',
     name: 'Treasure',
     role: 'Admin & Project Manager',
-    bio: 'Treasure keeps our projects on track and on time. She is the bridge between our clients and the creative team, ensuring clear communication and seamless project delivery.'
+    bio: 'Manages day-to-day administrative activities and oversees project follow-through across teams. Ensures tasks are properly coordinated, deadlines are met, and operations stay organized and efficient.'
+  },
+  {
+    src: '/Images/team_mem2.jpg',
+    name: 'Sopuruchi',
+    role: 'Chief Operating Officer (COO)',
+    bio: 'Oversees operations, logistics, and internal coordination across the company. Ensures projects, meetings, and organizational activities run smoothly by managing execution, planning, and operational structure.'
+  },
+  {
+    src: '/Images/team_mem1.jpg',
+    name: 'Vivian',
+    role: 'Founder & Product Designer',
+    bio: 'Vivian leads the vision and product strategy at Vheevid Hub. With a keen eye for design and a passion for solving complex problems, she ensures every product we build is user-centric and impactful.'
   },
 ];
 

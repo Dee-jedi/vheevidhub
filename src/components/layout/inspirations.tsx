@@ -1,6 +1,7 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, Variants, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 const fadeUpVariants: Variants = {
@@ -30,7 +31,47 @@ const imageVariants: Variants = {
   },
 };
 
+const REVIEWS = [
+  {
+    text: "Vheevid Hub transformed our brand with stunning design that perfectly captured our vision. Their team was professional, creative, and detail-oriented. We couldn't be happier with the results!",
+    name: "Stephanie Powell",
+    role: "VP of Sales at Facebook",
+    company: "facebook",
+    image: "/Images/lady_des3.jpg"
+  },
+  {
+    text: "[Placeholder] Vheevid Hub delivered exceptional results for our team. The attention to detail and creative solutions provided were exactly what we needed to scale our business to the next level.",
+    name: "John Doe",
+    role: "CEO at TechCorp",
+    company: "TechCorp",
+    image: "/Images/hero_pix1.jpg"
+  },
+  {
+    text: "[Placeholder] Working with Vheevid Hub was an absolute game-changer. They understood our brand identity perfectly and built a platform that our users absolutely love.",
+    name: "Jane Smith",
+    role: "Marketing Director",
+    company: "Innovate Inc",
+    image: "/Images/hero_pix4.jpg"
+  },
+  {
+    text: "[Placeholder] A fantastic experience from start to finish. The team is highly responsive, deeply creative, and consistently delivers top-tier work on time.",
+    name: "Michael Brown",
+    role: "Founder",
+    company: "Startup Co",
+    image: "/Images/hero_pix5.jpg"
+  }
+];
+
 export function Inspirations() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % REVIEWS.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative w-full bg-white overflow-hidden pb-20 sm:pb-32 pt-16 sm:pt-24">
 
@@ -223,8 +264,8 @@ export function Inspirations() {
           variants={staggerContainer}
           className="relative w-full max-w-4xl mx-auto mt-10 md:mt-16"
         >
-          <div className="relative z-10 flex flex-col p-8 sm:p-12 bg-white rounded-[32px] shadow-2xl shadow-black/5 border border-gray-100 transition-all duration-500 hover:shadow-black/10 overflow-hidden">
-
+          <div className="relative z-10 flex flex-col p-8 sm:p-12 pb-16 sm:pb-20 bg-white rounded-[32px] shadow-2xl shadow-black/5 border border-gray-100 transition-all duration-500 hover:shadow-black/10 overflow-hidden min-h-[380px] sm:min-h-[420px]">
+            
             {/* Quote Icon watermark */}
             <div className="absolute top-4 -left-2 sm:top-6 sm:left-6 text-gray-100 opacity-50 pointer-events-none z-0">
               <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor">
@@ -232,47 +273,68 @@ export function Inspirations() {
               </svg>
             </div>
 
-            <div className="relative z-10 flex flex-col gap-8 sm:gap-10">
-              {/* Stars */}
-              <motion.div variants={fadeUpVariants} className="flex items-center gap-1.5 text-[#FFC107]">
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              </motion.div>
-
-              {/* Quote Text */}
-              <motion.p variants={fadeUpVariants} className="text-[18px] sm:text-[22px] md:text-[25px] font-medium text-gray-600 leading-[1.6] tracking-tight">
-                &quot;Vheevid Hub transformed our brand with stunning design that perfectly captured our vision. Their team was professional, creative, and detail-oriented. We couldn&apos;t be happier with the results!&quot;
-              </motion.p>
-
-              {/* Avatar & Info Flex */}
-              <motion.div variants={fadeUpVariants} className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 sm:pt-8 border-t border-gray-100">
-
-                <div className="flex items-center gap-5">
-                  {/* Circle Avatar */}
-                  <div className="relative w-[60px] h-[60px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden shrink-0 border border-gray-100 shadow-sm">
-                    <Image
-                      src="/Images/lady_des3.jpg"
-                      alt="Stephanie Powell"
-                      fill
-                      sizes="72px"
-                      className="object-cover object-top hover:scale-110 transition-transform duration-700"
-                    />
-                  </div>
-                  {/* Details */}
-                  <div className="flex flex-col justify-center">
-                    <span className="font-bold text-[16px] sm:text-[18px] text-gray-900 tracking-tight">Stephanie Powell</span>
-                    <span className="text-[14px] text-gray-500 mt-0.5">VP of Sales at Facebook</span>
-                  </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, x: 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -40 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="relative z-10 flex flex-col gap-8 sm:gap-10 h-full flex-1"
+              >
+                {/* Stars */}
+                <div className="flex items-center gap-1.5 text-[#FFC107]">
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                 </div>
 
-                <div className="hidden sm:block">
-                  <span className="font-bold text-[24px] tracking-tight text-[#3B5998] opacity-80">facebook</span>
+                {/* Quote Text */}
+                <p className="text-[18px] sm:text-[22px] md:text-[25px] font-medium text-gray-600 leading-[1.6] tracking-tight min-h-[140px]">
+                  &quot;{REVIEWS[activeIndex].text}&quot;
+                </p>
+
+                {/* Avatar & Info Flex */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 sm:pt-8 border-t border-gray-100">
+                  <div className="flex items-center gap-5">
+                    {/* Circle Avatar */}
+                    <div className="relative w-[60px] h-[60px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden shrink-0 border border-gray-100 shadow-sm">
+                      <Image
+                        src={REVIEWS[activeIndex].image}
+                        alt={REVIEWS[activeIndex].name}
+                        fill
+                        sizes="72px"
+                        className="object-cover object-top hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                    {/* Details */}
+                    <div className="flex flex-col justify-center">
+                      <span className="font-bold text-[16px] sm:text-[18px] text-gray-900 tracking-tight">{REVIEWS[activeIndex].name}</span>
+                      <span className="text-[14px] text-gray-500 mt-0.5">{REVIEWS[activeIndex].role}</span>
+                    </div>
+                  </div>
+
+                  <div className="hidden sm:block">
+                    <span className="font-bold text-[20px] tracking-tight text-gray-400 uppercase">{REVIEWS[activeIndex].company}</span>
+                  </div>
                 </div>
               </motion.div>
+            </AnimatePresence>
+
+            {/* Slider Dots */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+              {REVIEWS.map((_, i) => (
+                <button 
+                  key={i}
+                  onClick={() => setActiveIndex(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === i ? 'w-6 bg-[#D62500]' : 'w-1.5 bg-gray-200 hover:bg-gray-300'}`}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              ))}
             </div>
+
           </div>
         </motion.div>
 

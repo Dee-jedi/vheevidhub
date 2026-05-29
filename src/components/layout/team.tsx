@@ -15,12 +15,12 @@ const staggerContainer: Variants = {
 };
 
 const teamImages = [
-  { src: '/Images/team_mem1.jpg', name: 'Vivian', role: 'Founder and Product Designer', classes: 'max-sm:absolute max-sm:left-[calc(50%-42px)] max-sm:top-[20px] sm:-translate-y-4 lg:-translate-y-8' },
-  { src: '/Images/team_mem2.jpg', name: 'Sopuruchi', role: 'Chief Operating Officer', classes: 'max-sm:absolute max-sm:left-[calc(50%+72px)] max-sm:top-[86px] sm:translate-y-8 lg:translate-y-12' },
-  { src: '/Images/team_mem3.jpg', name: 'Johnson', role: 'Web Developer', classes: 'max-sm:absolute max-sm:left-[calc(50%+72px)] max-sm:top-[218px] sm:-translate-y-4 lg:-translate-y-8' },
-  { src: '/Images/team_mem4.jpg', name: 'Peter', role: 'Brand and graphic Designer', classes: 'max-sm:absolute max-sm:left-[calc(50%-42px)] max-sm:top-[284px] sm:translate-y-8 lg:translate-y-12' },
-  { src: '/Images/team_mem5.jpg', name: 'Sarah', role: 'Social Media Manager', classes: 'max-sm:absolute max-sm:left-[calc(50%-156px)] max-sm:top-[218px] sm:-translate-y-4 lg:-translate-y-8' },
-  { src: '/Images/team_mem6.jpg', name: 'Treasure', role: 'Admin/Project Manager', classes: 'max-sm:absolute max-sm:left-[calc(50%-156px)] max-sm:top-[86px] sm:translate-y-8 lg:translate-y-12' },
+  { src: '/Images/team_mem3.jpg', name: 'Johnson', role: 'Web Developer', classes: 'max-sm:absolute max-sm:left-[calc(50%-42px)] max-sm:top-[20px] sm:-translate-y-4 lg:-translate-y-8' },
+  { src: '/Images/team_mem5.jpg', name: 'Sarah', role: 'Social Media Manager', classes: 'max-sm:absolute max-sm:left-[calc(50%+72px)] max-sm:top-[86px] sm:translate-y-8 lg:translate-y-12' },
+  { src: '/Images/team_mem4.jpg', name: 'Peter', role: 'Brand and Graphic Designer', classes: 'max-sm:absolute max-sm:left-[calc(50%+72px)] max-sm:top-[218px] sm:-translate-y-4 lg:-translate-y-8' },
+  { src: '/Images/team_mem6.jpg', name: 'Treasure', role: 'Admin & Project Manager', classes: 'max-sm:absolute max-sm:left-[calc(50%-42px)] max-sm:top-[284px] sm:translate-y-8 lg:translate-y-12' },
+  { src: '/Images/team_mem2.jpg', name: 'Sopuruchi', role: 'Chief Operating Officer (COO)', classes: 'max-sm:absolute max-sm:left-[calc(50%-156px)] max-sm:top-[218px] sm:-translate-y-4 lg:-translate-y-8' },
+  { src: '/Images/team_mem1.jpg', name: 'Vivian', role: 'Founder & Product Designer', classes: 'max-sm:absolute max-sm:left-[calc(50%-156px)] max-sm:top-[86px] sm:translate-y-8 lg:translate-y-12' },
 ];
 
 export function Team() {

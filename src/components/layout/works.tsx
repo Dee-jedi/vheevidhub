@@ -8,7 +8,7 @@ const WORKS = [
   {
     title: 'Tech Agency',
     description: "Redesigned a global fashion retailer's platform, boosting engagement and conversion rates with AI-driven solutions.",
-    link: 'https://www.vheevidhub.com/',
+    link: 'https://www.vheevidhub.com.ng/',
     imageSrc: '/Images/pro_des1.png'
   },
   {
