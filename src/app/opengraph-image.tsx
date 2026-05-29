@@ -25,7 +25,7 @@ export default async function Image() {
         }}
       >
         {/* Scaled up version of the SVG Logo */}
-        <svg width="204" height="192" viewBox="0 0 34 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="340" height="320" viewBox="0 0 34 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0)">
             <path d="M26.7423 17.5859C27.4819 17.5859 27.9656 18.361 27.6406 19.0254L22.1064 30.3385C21.7571 31.0526 20.7545 31.0932 20.3484 30.4098L18.4792 27.2637C18.3069 26.9737 18.2925 26.6164 18.4407 26.3134L22.4368 18.1464C22.6047 17.8034 22.9532 17.5859 23.3351 17.5859H26.7423Z" fill="#D62500"/>
             <path d="M15.4825 17.5859C16.222 17.5859 16.7057 18.361 16.3807 19.0254L15.1186 21.6054L12.9904 25.9571C12.8226 26.3002 12.474 26.5177 12.0921 26.5177H8.59283C7.8532 26.5177 7.36952 25.7426 7.6946 25.0782L11.0864 18.1464C11.2542 17.8034 11.6027 17.5859 11.9846 17.5859H15.4825Z" fill="#D62500"/>
@@ -42,15 +42,6 @@ export default async function Image() {
             </clipPath>
           </defs>
         </svg>
-
-        <div style={{ display: 'flex', flexDirection: 'column', marginLeft: 40, marginTop: 12 }}>
-          <div style={{ fontSize: 130, fontWeight: 700, color: '#111111', lineHeight: 0.9, letterSpacing: '-0.03em' }}>
-            Vheevid
-          </div>
-          <div style={{ fontSize: 130, fontWeight: 700, color: '#D62500', lineHeight: 0.9, letterSpacing: '-0.03em', marginTop: -5 }}>
-            Hub
-          </div>
-        </div>
       </div>
     ),
     { ...size }

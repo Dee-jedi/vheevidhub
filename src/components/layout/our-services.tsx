@@ -312,7 +312,7 @@ function ServiceCard({ title, description, icon }: ServiceCardProps) {
       </div>
       <h3 className="text-[7.5px] sm:text-[9.5px] lg:text-[12px] font-semibold text-[#111111] mb-0.5 lg:mb-1 leading-tight">{title}</h3>
       <p className="text-[6.5px] sm:text-[8.5px] lg:text-[10.5px] text-gray-500 leading-relaxed mb-1 lg:mb-2 line-clamp-2 lg:line-clamp-none">{description}</p>
-      <Link href="/projects" className="inline-flex items-center text-[6.5px] sm:text-[8.5px] lg:text-[10.5px] font-medium text-[#D62500] hover:text-[#b81f00] transition-colors">
+      <Link href="/works" className="inline-flex items-center text-[6.5px] sm:text-[8.5px] lg:text-[10.5px] font-medium text-[#D62500] hover:text-[#b81f00] transition-colors">
         View Projects
         <svg className="ml-0.5 lg:ml-1 w-1.5 h-1.5 lg:w-2.5 lg:h-2.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />

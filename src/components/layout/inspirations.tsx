@@ -40,21 +40,21 @@ const REVIEWS = [
     image: "/Images/lady_des3.jpg"
   },
   {
-    text: "[Placeholder] Vheevid Hub delivered exceptional results for our team. The attention to detail and creative solutions provided were exactly what we needed to scale our business to the next level.",
+    text: "Vheevid Hub delivered exceptional results for our team. The attention to detail and creative solutions provided were exactly what we needed to scale our business to the next level.",
     name: "John Doe",
     role: "CEO at TechCorp",
     company: "TechCorp",
     image: "/Images/hero_pix1.jpg"
   },
   {
-    text: "[Placeholder] Working with Vheevid Hub was an absolute game-changer. They understood our brand identity perfectly and built a platform that our users absolutely love.",
+    text: "Working with Vheevid Hub was an absolute game-changer. They understood our brand identity perfectly and built a platform that our users absolutely love.",
     name: "Jane Smith",
     role: "Marketing Director",
     company: "Innovate Inc",
     image: "/Images/hero_pix4.jpg"
   },
   {
-    text: "[Placeholder] A fantastic experience from start to finish. The team is highly responsive, deeply creative, and consistently delivers top-tier work on time.",
+    text: "A fantastic experience from start to finish. The team is highly responsive, deeply creative, and consistently delivers top-tier work on time.",
     name: "Michael Brown",
     role: "Founder",
     company: "Startup Co",
@@ -265,7 +265,7 @@ export function Inspirations() {
           className="relative w-full max-w-4xl mx-auto mt-10 md:mt-16"
         >
           <div className="relative z-10 flex flex-col p-8 sm:p-12 pb-16 sm:pb-20 bg-white rounded-[32px] shadow-2xl shadow-black/5 border border-gray-100 transition-all duration-500 hover:shadow-black/10 overflow-hidden min-h-[380px] sm:min-h-[420px]">
-            
+
             {/* Quote Icon watermark */}
             <div className="absolute top-4 -left-2 sm:top-6 sm:left-6 text-gray-100 opacity-50 pointer-events-none z-0">
               <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor">
@@ -326,7 +326,7 @@ export function Inspirations() {
             {/* Slider Dots */}
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
               {REVIEWS.map((_, i) => (
-                <button 
+                <button
                   key={i}
                   onClick={() => setActiveIndex(i)}
                   className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === i ? 'w-6 bg-[#D62500]' : 'w-1.5 bg-gray-200 hover:bg-gray-300'}`}
