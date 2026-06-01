@@ -50,6 +50,28 @@ const CAPABILITIES = [
     )
   },
   {
+    id: 'graphic-designs',
+    title: 'Graphic Design',
+    description: 'We create compelling visual assets that capture attention and communicate your message clearly. From marketing materials to social media graphics, our designs are crafted to inspire and engage.',
+    tags: ['Flyers', 'Social Media Graphics', 'Banners', 'Marketing Assets'],
+    icon: (
+      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.813-6.84a1.5 1.5 0 00-1.46-2.128h-3.95m1.528 4.283l-3.812 6.84a15.995 15.995 0 01-4.648 4.764" />
+      </svg>
+    )
+  },
+  {
+    id: 'books-edited',
+    title: 'Book & Video Editing',
+    description: 'We refine your written and visual content to perfection. Whether polishing a manuscript for publication or cutting a video for maximum impact, our editing services elevate your story.',
+    tags: ['Manuscript Editing', 'Video Production', 'Content Refinement', 'Proofreading'],
+    icon: (
+      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-3.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-1.5A1.125 1.125 0 0118 18.375M20.625 4.5H3.375m17.25 0c.621 0 1.125.504 1.125 1.125M20.625 4.5h-1.5C18.504 4.5 18 5.004 18 5.625m3.75 0v1.5c0 .621-.504 1.125-1.125 1.125M3.375 4.5c-.621 0-1.125.504-1.125 1.125M3.375 4.5h1.5C5.496 4.5 6 5.004 6 5.625m-3.75 0v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-7.5a1.125 1.125 0 01-1.125-1.125v-3.75c0-.621.504-1.125 1.125-1.125z" />
+      </svg>
+    )
+  },
+  {
     id: 'academy',
     title: 'Academy',
     description: 'We are pushing our years of agency experience into trusted, interactive teaching experiences. Master the craft of digital execution with live mentorship.',
