@@ -15,9 +15,10 @@ const NAV_LINKS = [
 
 const MOBILE_NAV_LINKS = [
   { label: 'Home', href: '/' },
+
+  { label: 'Why Us?', href: '/why-us' },
   { label: 'Our Works', href: '/works' },
   { label: 'Services', href: '/services' },
-  { label: 'Why Us?', href: '/why-us' },
 ];
 
 // Overlay backdrop animation

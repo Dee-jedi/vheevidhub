@@ -10,14 +10,9 @@ const teamMembers = [
     src: '/Images/team_mem3.jpg',
     name: 'Johnson',
     role: 'Web Developer',
-    bio: 'Johnson is the technical powerhouse behind our digital solutions. He transforms designs into functional, highly-performant web applications, specializing in modern frontend technologies.'
+    bio: 'Johnson is the technical powerhouse behind our digital solutions. He transforms designs into functional, high-performance web applications, specializing in modern frontend technologies.'
   },
-  {
-    src: '/Images/team_mem5.jpg',
-    name: 'Sarah',
-    role: 'Social Media Manager',
-    bio: 'Sarah is the voice of Vheevid Hub online. She curates engaging content, builds community relationships, and strategically manages our digital presence across all social platforms.'
-  },
+
   {
     src: '/Images/team_mem4.jpg',
     name: 'Peter',

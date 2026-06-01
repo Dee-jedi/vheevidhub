@@ -33,32 +33,25 @@ const imageVariants: Variants = {
 
 const REVIEWS = [
   {
-    text: "Vheevid Hub transformed our brand with stunning design that perfectly captured our vision. Their team was professional, creative, and detail-oriented. We couldn't be happier with the results!",
-    name: "Stephanie Powell",
-    role: "VP of Sales at Facebook",
-    company: "facebook",
-    image: "/Images/lady_des3.jpg"
+    text: "Working with Vheevid Hub on my three books was a valuable experience. Their editing went beyond grammar and punctuation to improve clarity, structure, and flow. I confidently recommend them to any author looking for a partner who refines your work without losing your voice.",
+    name: "Adewumi Adeyanju",
+    role: "Founder, Leaders' Guide",
+    company: "Leaders' Guide",
+    image: "/Images/rev_1.jpg"
   },
   {
-    text: "Vheevid Hub delivered exceptional results for our team. The attention to detail and creative solutions provided were exactly what we needed to scale our business to the next level.",
-    name: "John Doe",
-    role: "CEO at TechCorp",
-    company: "TechCorp",
-    image: "/Images/hero_pix1.jpg"
+    text: "Working with Vheevid Hub on our Aven Workspace platform was a professional and collaborative experience. Their team brought creativity and a clear understanding of modern product design while aligning perfectly with our vision. We happily recommend them to any organization.",
+    name: "Chinedu Emmanuel Oleka",
+    role: "Co-Founder & CEO, ServerCrib Technology Solutions",
+    company: "ServerCrib",
+    image: "/Images/rev_3.jpg"
   },
   {
-    text: "Working with Vheevid Hub was an absolute game-changer. They understood our brand identity perfectly and built a platform that our users absolutely love.",
-    name: "Jane Smith",
-    role: "Marketing Director",
-    company: "Innovate Inc",
-    image: "/Images/hero_pix4.jpg"
-  },
-  {
-    text: "A fantastic experience from start to finish. The team is highly responsive, deeply creative, and consistently delivers top-tier work on time.",
-    name: "Michael Brown",
-    role: "Founder",
-    company: "Startup Co",
-    image: "/Images/hero_pix5.jpg"
+    text: "Thank you for the amazing design! I am short of words to describe your work.\n\nWithout giving you any clue as to what we wanted, you came up with a design that was simply perfect for our company. We are truly grateful! 🤗👏",
+    name: "Aruwa Testimony Usman",
+    role: "Founder, Earthwise",
+    company: "Earthwise",
+    image: "/Images/rev_2.jpg"
   }
 ];
 
@@ -68,7 +61,7 @@ export function Inspirations() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % REVIEWS.length);
-    }, 6000);
+    }, 10000);
     return () => clearInterval(timer);
   }, []);
 
@@ -292,7 +285,7 @@ export function Inspirations() {
                 </div>
 
                 {/* Quote Text */}
-                <p className="text-[18px] sm:text-[22px] md:text-[25px] font-medium text-gray-600 leading-[1.6] tracking-tight min-h-[140px]">
+                <p className="text-[18px] sm:text-[22px] md:text-[25px] font-medium text-gray-600 leading-[1.6] tracking-tight min-h-[140px] whitespace-pre-line">
                   &quot;{REVIEWS[activeIndex].text}&quot;
                 </p>
 

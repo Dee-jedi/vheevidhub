@@ -106,7 +106,7 @@ export const ALL_WORKS_DATA = [
       {
         title: 'Resilient Leadership',
         description: 'Edited a leadership book focused on resilience, growth, and leading effectively through challenges.',
-        link: '#',
+        link: 'https://selar.com/5i5b207181',
         imageSrc: '/Images/edi_des1.png'
       },
       {
@@ -118,7 +118,7 @@ export const ALL_WORKS_DATA = [
       {
         title: 'The Human-Centric Leadership',
         description: 'Edited a leadership book centered on empathy, people-focused growth, and meaningful organizational impact.',
-        link: '#',
+        link: 'https://selar.com/0171703u26',
         imageSrc: '/Images/edi_des3.png'
       },
       {

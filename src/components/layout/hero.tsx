@@ -30,7 +30,7 @@ const HERO_IMAGES = [
   { src: '/Images/hero_pix5.jpg', alt: 'Learning and growth', rotate: 16, zIndex: 5, pill: { label: 'LEARN', position: 'bottom-right' } },
 ];
 
-const WORDS = ["Edit.", "Brand.", "Learn.", "Automate."];
+const WORDS = ["Design.", "Develop.", "Edit.", "Brand.", "Learn.", "Automate."];
 
 export function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
@@ -57,63 +57,67 @@ export function Hero() {
           className="text-[clamp(2.2rem,8vw,4.5rem)] font-bold text-[#111111] leading-[1.1] tracking-tight mt-6"
         >
           <span className="relative inline-block whitespace-nowrap">
-            {/* Exact Provided Star Icon Above 'Design' — Subtle Pulsating & Glowing */}
-            <motion.svg
-              animate={{
-                scale: [1, 1.08, 1],
-                filter: [
-                  'drop-shadow(0px 0px 0px rgba(214, 37, 0, 0))',
-                  'drop-shadow(0px 0px 8px rgba(214, 37, 0, 0.35))',
-                  'drop-shadow(0px 0px 0px rgba(214, 37, 0, 0))'
-                ]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute top-[-28%] xs:-top-[35%] sm:top-[-35%] left-[38%] -translate-x-1/2 w-[clamp(24px,5vw,52px)] h-[clamp(24px,5vw,52px)]"
-              viewBox="0 0 52 52"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M25.3062 0.61636C25.4037 -0.205453 26.5963 -0.205453 26.6939 0.61636L27.5119 7.51063C28.5682 16.413 35.587 23.4318 44.4893 24.4881L51.3836 25.3062C52.2055 25.4037 52.2055 26.5963 51.3836 26.6939L44.4893 27.5119C35.587 28.5682 28.5682 35.587 27.5119 44.4893L26.6939 51.3836C26.5963 52.2055 25.4037 52.2055 25.3062 51.3836L24.4881 44.4893C23.4318 35.587 16.413 28.5682 7.51063 27.5119L0.61636 26.6939C-0.205453 26.5963 -0.205453 25.4037 0.61636 25.3062L7.51063 24.4881C16.413 23.4318 23.4318 16.413 24.4881 7.51063L25.3062 0.61636Z"
-                fill="#D62500"
-              />
-            </motion.svg>
-            Design.
-            {/* Red Underline Below 'Design' */}
-            <svg
-              className="absolute -bottom-1 sm:-bottom-2 left-0 w-[105%] h-[clamp(8px,1.5vw,12px)]"
-              viewBox="0 0 120 10"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M2 7C20 3 40 2 60 3C80 4 100 5 118 3"
-                stroke="#D62500"
-                strokeWidth="4"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>{' '}
-          Develop.{' '}
+            <span className="inline-grid overflow-hidden align-bottom h-[1.1em] text-left text-[#111111] pr-2">
+              <AnimatePresence mode="popLayout" initial={false}>
+                <motion.span
+                  key={wordIndex}
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: "0%", opacity: 1 }}
+                  exit={{ y: "-100%", opacity: 0 }}
+                  transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+                  className="col-start-1 row-start-1"
+                >
+                  {WORDS[wordIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+          </span>
           <br className="sm:hidden" />
-          <span className="inline-grid overflow-hidden align-bottom h-[1.1em]">
-            <AnimatePresence mode="popLayout" initial={false}>
-              <motion.span
-                key={wordIndex}
-                initial={{ y: "100%", opacity: 0 }}
-                animate={{ y: "0%", opacity: 1 }}
-                exit={{ y: "-100%", opacity: 0 }}
-                transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
-                className="col-start-1 row-start-1"
+          <span className="whitespace-nowrap">
+            All In{' '}
+            <span className="relative inline-block">
+              {/* Exact Provided Star Icon Above 'Hub' — Subtle Pulsating & Glowing */}
+              <motion.svg
+                animate={{
+                  scale: [1, 1.08, 1],
+                  filter: [
+                    'drop-shadow(0px 0px 0px rgba(214, 37, 0, 0))',
+                    'drop-shadow(0px 0px 8px rgba(214, 37, 0, 0.35))',
+                    'drop-shadow(0px 0px 0px rgba(214, 37, 0, 0))'
+                  ]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute top-[-54%] xs:-top-[35%] sm:top-[-48%] right-[0.25em] sm:right-[0.8em] w-[clamp(24px,5vw,52px)] h-[clamp(24px,5vw,52px)] z-10"
+                viewBox="0 0 52 52"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                {WORDS[wordIndex]}
-              </motion.span>
-            </AnimatePresence>
+                <path
+                  d="M25.3062 0.61636C25.4037 -0.205453 26.5963 -0.205453 26.6939 0.61636L27.5119 7.51063C28.5682 16.413 35.587 23.4318 44.4893 24.4881L51.3836 25.3062C52.2055 25.4037 52.2055 26.5963 51.3836 26.6939L44.4893 27.5119C35.587 28.5682 28.5682 35.587 27.5119 44.4893L26.6939 51.3836C26.5963 52.2055 25.4037 52.2055 25.3062 51.3836L24.4881 44.4893C23.4318 35.587 16.413 28.5682 7.51063 27.5119L0.61636 26.6939C-0.205453 26.5963 -0.205453 25.4037 0.61636 25.3062L7.51063 24.4881C16.413 23.4318 23.4318 16.413 24.4881 7.51063L25.3062 0.61636Z"
+                  fill="#D62500"
+                />
+              </motion.svg>
+              One Hub
+              {/* Red Underline Below 'One Hub' */}
+              <svg
+                className="absolute -bottom-1 sm:-bottom-2 left-0 w-[105%] h-[clamp(8px,1.5vw,12px)]"
+                viewBox="0 0 120 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M2 7C20 3 40 2 60 3C80 4 100 5 118 3"
+                  stroke="#D62500"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
           </span>
         </motion.h1>
 
@@ -122,9 +126,7 @@ export function Hero() {
           variants={fadeDown}
           className="mx-auto max-w-3xl mt-8 text-[15px] sm:text-[17px] leading-relaxed text-gray-600 px-2"
         >
-          We bring ideas to life, designing intuitive products, developing custom software,
-          editing books and videos, building memorable brands, and empowering you with new
-          skills through our academy.
+          We end your multiple vendor stress by bringing consistency to your brand through a unified team that delivers affordable creative digital solutions and an academy that trains the next generation of creative minds.
         </motion.p>
 
         {/* CTA Buttons */}
