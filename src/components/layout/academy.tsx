@@ -65,7 +65,7 @@ ${formData.notes || 'None'}`;
   };
 
   return (
-    <section className="w-full bg-white py-20 sm:py-32 overflow-hidden border-t border-gray-100/50 relative">
+    <section id="academy" className="w-full bg-white py-20 sm:py-32 overflow-hidden border-t border-gray-100/50 relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
         {/* Header */}

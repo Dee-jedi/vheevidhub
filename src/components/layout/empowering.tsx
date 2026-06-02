@@ -103,7 +103,7 @@ export function Empowering() {
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 <Link
-                  href="/academy"
+                  href="/works#academy"
                   className="inline-flex items-center justify-center px-8 py-3.5 bg-[#D62500] text-white rounded-full font-medium text-[15px] hover:bg-[#b81f00] transition-colors shadow-[0_8px_20px_rgba(214,37,0,0.2)] hover:shadow-lg active:scale-95"
                 >
                   Learn More <span className="ml-2 font-bold">→</span>

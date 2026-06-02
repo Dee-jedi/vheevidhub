@@ -50,7 +50,7 @@ export const ALL_WORKS_DATA = [
         imageSrc: '/Images/sof_des1.png'
       },
       {
-        title: 'Grocery & Foods',
+        title: 'Digital Agency',
         description: 'We built a modern digital platform for a full-service agency, showcasing their services, built trust and better conversion.',
         link: 'https://www.jolaxglobalconcept.com/',
         imageSrc: '/Images/sof_des2.png'
@@ -112,7 +112,7 @@ export const ALL_WORKS_DATA = [
       {
         title: 'The Business of Design',
         description: 'Edited a professional book design for a creative guide teaching designers how to build sustainable businesses.',
-        link: '#',
+        link: 'https://selar.com/108m9633b7',
         imageSrc: '/Images/edi_des2.png'
       },
       {
@@ -124,7 +124,7 @@ export const ALL_WORKS_DATA = [
       {
         title: 'HeadWay in HardWay',
         description: 'We edited a motivational book that inspires perseverance, resilience, and growth through life\'s difficult seasons.',
-        link: '#',
+        link: 'https://selar.com/m/chinonso-b-eze1',
         imageSrc: '/Images/edi_des4.png'
       }
     ]
