@@ -20,3 +20,4 @@ export { TechMarquee } from './tech-marquee';
 export { EngagementModels } from './engagement-models';
 export { GiantCTA } from './giant-cta';
 export { ContactForm } from './contact-form';
+export { WaitlistForm } from './waitlist-form';
