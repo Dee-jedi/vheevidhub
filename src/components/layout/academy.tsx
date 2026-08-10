@@ -92,7 +92,7 @@ export function Academy() {
             <div className="flex items-center gap-2 mb-4 sm:mb-6">
               <span className="w-2 h-2 rounded-full bg-[#D62500]" />
               <span className="text-[12px] sm:text-[13px] font-bold text-[#D62500] uppercase tracking-wider">
-                Coming Soon
+                Enrollment Open
               </span>
             </div>
 
@@ -109,10 +109,10 @@ export function Academy() {
             {/* CTA Buttons */}
             <div className="flex flex-col min-[480px]:flex-row items-center sm:items-start justify-center lg:justify-start gap-3 sm:gap-4 w-full">
               <Link
-                href="/waitlist"
+                href="/academy"
                 className="flex w-full min-[480px]:w-auto items-center justify-center h-14 sm:h-16 px-8 sm:px-10 text-[16px] sm:text-[18px] font-medium text-white bg-[#D62500] rounded-full transition-all duration-200 hover:bg-[#b81f00] hover:shadow-lg hover:shadow-red-500/20 active:scale-95 cursor-pointer"
               >
-                Join waitlist
+                Explore Courses
               </Link>
 
 

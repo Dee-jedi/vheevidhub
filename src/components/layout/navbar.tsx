@@ -11,14 +11,15 @@ const NAV_LINKS = [
   { label: 'Why Us?', href: '/why-us' },
   { label: 'Our Works', href: '/works' },
   { label: 'Services', href: '/services' },
+  { label: 'Academy', href: '/academy' },
 ];
 
 const MOBILE_NAV_LINKS = [
   { label: 'Home', href: '/' },
-
   { label: 'Why Us?', href: '/why-us' },
   { label: 'Our Works', href: '/works' },
   { label: 'Services', href: '/services' },
+  { label: 'Academy', href: '/academy' },
 ];
 
 // Overlay backdrop animation
@@ -65,7 +66,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const isDarkHeroPage = pathname === '/services';
+  const isDarkHeroPage = pathname === '/services' || pathname === '/academy';
 
   // Lock body scroll when drawer is open
   useEffect(() => {
