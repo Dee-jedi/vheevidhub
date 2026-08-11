@@ -273,6 +273,9 @@ export default function AcademyLanding() {
         </div>
       </section>
 
+      {/* White spacer before footer */}
+      <div className="w-full h-16 sm:h-24 bg-white" />
+
       <AnimatePresence>
         {selectedCourse && (
           <CheckoutModal 
