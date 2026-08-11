@@ -3,7 +3,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import Image from 'next/image';
-import { CheckoutModal } from '@/components/academy/checkout-modal';
+import dynamic from 'next/dynamic';
+
+const CheckoutModal = dynamic(
+  () => import('@/components/academy/checkout-modal').then(mod => mod.CheckoutModal), 
+  { ssr: false }
+);
 
 const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
