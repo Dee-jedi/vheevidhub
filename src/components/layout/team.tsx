@@ -15,10 +15,10 @@ const staggerContainer: Variants = {
 };
 
 const teamImages = [
-  { src: '/Images/team_mem3.jpg', name: 'Johnson', role: 'Web Developer', classes: 'max-sm:absolute max-sm:left-[calc(50%-42px)] max-sm:top-[22px] sm:-translate-y-4 lg:-translate-y-8' },
+  { src: '/Images/team_mem9.jpeg', name: 'Isaac', role: 'Web Developer', classes: 'max-sm:absolute max-sm:left-[calc(50%-42px)] max-sm:top-[22px] sm:-translate-y-4 lg:-translate-y-8' },
   { src: '/Images/team_mem4.jpg', name: 'Peter', role: 'Brand and Graphic Designer', classes: 'max-sm:absolute max-sm:left-[calc(50%+82px)] max-sm:top-[112px] sm:translate-y-8 lg:translate-y-12' },
   { src: '/Images/team_mem6.jpg', name: 'Treasure', role: 'Admin & Project Manager', classes: 'max-sm:absolute max-sm:left-[calc(50%+34px)] max-sm:top-[257px] sm:-translate-y-4 lg:-translate-y-8' },
-  { src: '/Images/team_mem2.jpg', name: 'Sopuruchi', role: 'Chief Operating Officer (COO)', classes: 'max-sm:absolute max-sm:left-[calc(50%-118px)] max-sm:top-[257px] sm:translate-y-8 lg:translate-y-12' },
+  { src: '/Images/team_mem8.jpeg', name: 'Oluwatomiwa', role: 'Social Media Manager', classes: 'max-sm:absolute max-sm:left-[calc(50%-118px)] max-sm:top-[257px] sm:translate-y-8 lg:translate-y-12' },
   { src: '/Images/team_mem1.jpg', name: 'Vivian', role: 'Founder & Product Designer', classes: 'max-sm:absolute max-sm:left-[calc(50%-166px)] max-sm:top-[112px] sm:-translate-y-4 lg:-translate-y-8' },
 ];
 
@@ -109,7 +109,7 @@ export function Team() {
                     alt={`Team Member - ${img.name}`}
                     fill
                     sizes="(max-width: 640px) 33vw, 150px"
-                    className="object-cover hover:scale-110 transition-transform duration-700"
+                    className="object-cover object-top hover:scale-110 transition-transform duration-700"
                   />
                 </div>
               </motion.div>

@@ -7,12 +7,11 @@ import { useRef } from 'react';
 
 const teamMembers = [
   {
-    src: '/Images/team_mem3.jpg',
-    name: 'Johnson',
+    src: '/Images/team_mem9.jpeg',
+    name: 'Isaac',
     role: 'Web Developer',
-    bio: 'Johnson is the technical powerhouse behind our digital solutions. He transforms designs into functional, high-performance web applications, specializing in modern frontend technologies.'
+    bio: 'Isaac designs and develops responsive, high-performing websites that combine functionality with seamless user experiences, helping our clients establish a strong and professional online presence.'
   },
-
   {
     src: '/Images/team_mem4.jpg',
     name: 'Peter',
@@ -26,10 +25,10 @@ const teamMembers = [
     bio: 'Manages day-to-day administrative activities and oversees project follow-through across teams. Ensures tasks are properly coordinated, deadlines are met, and operations stay organized and efficient.'
   },
   {
-    src: '/Images/team_mem2.jpg',
-    name: 'Sopuruchi',
-    role: 'Chief Operating Officer (COO)',
-    bio: 'Oversees operations, logistics, and internal coordination across the company. Ensures projects, meetings, and organizational activities run smoothly by managing execution, planning, and operational structure.'
+    src: '/Images/team_mem8.jpeg',
+    name: 'Oluwatomiwa',
+    role: 'Social Media Manager',
+    bio: 'Oluwatomiwa is the voice behind our digital presence. She develops engaging content, manages our social media platforms, and builds meaningful connections with our audience, ensuring the Vheevid Hub brand remains visible, relevant, and impactful.'
   },
   {
     src: '/Images/team_mem1.jpg',
@@ -73,7 +72,7 @@ function TeamCard({ member, index }: { member: typeof teamMembers[0]; index: num
             alt={member.name}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover"
+            className="object-cover object-top"
           />
         </motion.div>
         {/* Subtle gradient overlay at bottom of image */}

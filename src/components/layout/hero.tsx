@@ -126,7 +126,7 @@ export function Hero() {
           variants={fadeDown}
           className="mx-auto max-w-3xl mt-8 text-[15px] sm:text-[17px] leading-relaxed text-gray-600 px-2"
         >
-          We end your multiple vendor stress by bringing consistency to your brand through a unified team that delivers affordable creative digital solutions and an academy that trains the next generation of creative minds.
+          We end your multiple vendor stress by bringing consistency to your brand through a unified team that delivers valuable creative digital solutions and an academy that trains the next generation of creative minds.
         </motion.p>
 
         {/* CTA Buttons */}
