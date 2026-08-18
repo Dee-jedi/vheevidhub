@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { usePaystackPayment } from 'react-paystack';
 import { useRouter } from 'next/navigation';
@@ -25,6 +25,13 @@ export function CheckoutModal({ course, onClose }: CheckoutModalProps) {
   const [error, setError] = useState('');
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
   const config = {
     reference: (new Date()).getTime().toString(),
     email: email,
@@ -48,7 +55,7 @@ export function CheckoutModal({ course, onClose }: CheckoutModalProps) {
 
   const initializePayment = usePaystackPayment(config);
 
-  const onSuccess = () => {
+  const onSuccess = async () => {
     // Save to local storage for records
     localStorage.setItem('vheevid_academy_success', JSON.stringify({
       courseId: course.id,
@@ -58,8 +65,20 @@ export function CheckoutModal({ course, onClose }: CheckoutModalProps) {
       email: email
     }));
     
-    // Switch modal to success state instead of redirecting
-    setPaymentSuccess(true);
+    // Trigger Successful Enrollment API Call
+    try {
+      await fetch('/api/enroll', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName, email, courseId: course.id })
+      });
+    } catch (err) {
+      console.error("Enrollment capture failed", err);
+    }
+
+    // Redirect to Dashboard instead of showing success state in modal
+    onClose();
+    router.push('/dashboard');
   };
 
   const onClosePayment = () => {

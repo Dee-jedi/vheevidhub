@@ -4,45 +4,14 @@ import { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
 
-const CheckoutModal = dynamic(
-  () => import('@/components/academy/checkout-modal').then(mod => mod.CheckoutModal), 
-  { ssr: false }
-);
+import { BOOTCAMPS } from '@/data/bootcamps';
 
 const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
 };
-
-const COURSES = [
-  {
-    id: 'graphic-design',
-    title: 'Graphic Design',
-    description: 'Master visual communication and learn industry-standard design tools to create stunning brand identities.',
-    price: 25000,
-    features: [
-      'Live interactive classes',
-      'Hands-on portfolio projects',
-      'Certificate of completion',
-      'Mentorship from experts'
-    ],
-    whatsappLink: 'https://chat.whatsapp.com/L51ztWo0EjP0FaJJFUFz0s'
-  },
-  {
-    id: 'automations',
-    title: 'Automations & AI',
-    description: 'Learn to build powerful workflows, automate repetitive tasks, and leverage AI to scale businesses.',
-    price: 25000,
-    features: [
-      'Live interactive classes',
-      'Real-world automation setups',
-      'Certificate of completion',
-      'Mentorship from experts'
-    ],
-    whatsappLink: 'https://chat.whatsapp.com/B7itIXpTDWI9pJVUBjfoxe'
-  }
-];
 
 const FAQS = [
   {
@@ -60,7 +29,7 @@ const FAQS = [
 ];
 
 export default function AcademyLanding() {
-  const [selectedCourse, setSelectedCourse] = useState<typeof COURSES[0] | null>(null);
+  const router = useRouter();
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(0);
 
   return (
@@ -158,53 +127,78 @@ export default function AcademyLanding() {
       </section>
 
       {/* Courses Section */}
-      <section id="courses" className="py-20 sm:py-32 px-4 sm:px-6">
-        <div className="max-w-5xl mx-auto">
+      <section id="courses" className="py-20 sm:py-32 px-4 sm:px-6 bg-[#FAFAFA]">
+        <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-[32px] sm:text-[40px] font-bold text-[#111111] tracking-tight mb-4">
-              Choose Your Path
+              Live Bootcamps
             </h2>
-            <p className="text-gray-500">Select a course to begin your journey.</p>
+            <p className="text-[16px] text-gray-500">Intensive, live cohorts designed to take you from zero to industry-ready.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {COURSES.map((course, idx) => (
-              <motion.div
-                key={course.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.2 }}
-                className="bg-white border border-gray-200 rounded-[24px] p-8 sm:p-10 hover:shadow-xl hover:border-gray-300 transition-all duration-300 flex flex-col"
-              >
-                <div className="mb-6 flex-1">
-                  <h3 className="text-[24px] font-bold text-[#111111] mb-3">{course.title}</h3>
-                  <p className="text-gray-500 text-[15px] leading-relaxed mb-6">{course.description}</p>
-                  
-                  <div className="mb-8">
-                    <span className="text-[36px] font-bold text-[#111111]">₦{course.price.toLocaleString()}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {BOOTCAMPS.map((course, idx) => {
+              const isActive = course.status === 'active';
+              return (
+                <motion.div
+                  key={course.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className={`bg-white border rounded-[24px] p-6 sm:p-8 flex flex-col ${isActive ? 'border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-xl hover:border-gray-200' : 'border-gray-100'} transition-all duration-300`}
+                >
+                  <div className="mb-8 flex-1">
+                    {/* Badge */}
+                    <div className="mb-6">
+                      {isActive ? (
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-[#D62500] border border-red-100/50">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#D62500]" />
+                          <span className="text-[12px] font-semibold">{course.badgeText}</span>
+                        </div>
+                      ) : (
+                        <div className="inline-flex items-center px-3 py-1 rounded-full bg-transparent text-[#9E9E9E] border border-gray-200/60">
+                          <span className="text-[12px] font-medium">{course.badgeText}</span>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Title */}
+                    <h3 className={`text-[22px] font-bold mb-4 ${isActive ? 'text-[#111111]' : 'text-[#9E9E9E]'}`}>
+                      {course.title}
+                    </h3>
+                    
+                    {/* Date */}
+                    <div className={`flex items-center gap-2 text-[14px] font-medium mb-6 ${isActive ? 'text-gray-600' : 'text-[#616161]'}`}>
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      {course.dateText}
+                    </div>
+
+                    {/* Description */}
+                    <p className={`text-[14px] leading-relaxed ${isActive ? 'text-gray-500' : 'text-[#9E9E9E]'}`}>
+                      {course.description}
+                    </p>
+                    
                   </div>
 
-                  <ul className="space-y-4">
-                    {course.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-3 text-[15px] text-gray-700 font-medium">
-                        <svg className="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <button
-                  onClick={() => setSelectedCourse(course)}
-                  className="w-full h-14 rounded-xl bg-[#111111] text-white font-semibold text-[16px] hover:bg-[#D62500] hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 active:scale-[0.98]"
-                >
-                  Enroll Now
-                </button>
-              </motion.div>
-            ))}
+                  {/* Divider for active items to space out the button if needed, but flex-col with mt-auto handles it. Let's add a slight divider if it matches. Image shows a very faint separator line above button. */}
+                  <div className="border-t border-gray-50 pt-6">
+                    <button
+                      onClick={() => isActive ? router.push(`/academy/${course.id}`) : router.push('/waitlist')}
+                      className={`w-full h-12 sm:h-14 rounded-full font-semibold text-[15px] transition-all duration-300 ${
+                        isActive 
+                          ? 'bg-[#D62500] text-white hover:bg-[#b81f00] hover:shadow-lg hover:shadow-red-500/20 active:scale-[0.98]' 
+                          : 'bg-transparent border border-gray-200/60 text-[#9E9E9E] hover:bg-gray-50 hover:text-gray-600 active:scale-[0.98]'
+                      }`}
+                    >
+                      {course.buttonText}
+                    </button>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -275,15 +269,6 @@ export default function AcademyLanding() {
 
       {/* White spacer before footer */}
       <div className="w-full h-16 sm:h-24 bg-white" />
-
-      <AnimatePresence>
-        {selectedCourse && (
-          <CheckoutModal 
-            course={selectedCourse} 
-            onClose={() => setSelectedCourse(null)} 
-          />
-        )}
-      </AnimatePresence>
 
     </div>
   );

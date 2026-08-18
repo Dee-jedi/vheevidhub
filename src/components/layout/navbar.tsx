@@ -65,6 +65,7 @@ const drawerItemVariants: Variants = {
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hasPaid, setHasPaid] = useState(false);
   const pathname = usePathname();
   const isDarkHeroPage = pathname === '/services' || pathname === '/academy';
 
@@ -88,6 +89,14 @@ export function Navbar() {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Check if user is enrolled
+  useEffect(() => {
+    const successData = localStorage.getItem('vheevid_academy_success');
+    if (successData) {
+      setHasPaid(true);
+    }
   }, []);
 
   return (
@@ -131,6 +140,17 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            {hasPaid && (
+              <Link
+                href="/dashboard"
+                className={`px-4 py-2 text-[14px] font-medium rounded-lg transition-colors duration-200 ${!scrolled && isDarkHeroPage
+                  ? 'text-gray-300 hover:text-white hover:bg-white/10'
+                  : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/60'
+                  } ${pathname === '/dashboard' ? 'text-[#D62500] font-bold' : ''}`}
+              >
+                Dashboard
+              </Link>
+            )}
           </nav>
 
           {/* Desktop Contact Button */}
@@ -263,6 +283,30 @@ export function Navbar() {
                     </Link>
                   </motion.div>
                 ))}
+                
+                {/* Dynamic Dashboard Link for Mobile */}
+                {hasPaid && (
+                  <motion.div variants={drawerItemVariants}>
+                    <Link
+                      href="/dashboard"
+                      onClick={() => setIsOpen(false)}
+                      className="group flex items-center justify-between py-5 border-b border-gray-100 last:border-0"
+                    >
+                      <span className="text-[20px] font-bold text-[#D62500]">
+                        Dashboard
+                      </span>
+                      <svg
+                        className="w-4 h-4 text-[#D62500] group-hover:translate-x-1 transition-all duration-200"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  </motion.div>
+                )}
 
                 {/* Contact Us Button in Drawer */}
                 <motion.div variants={drawerItemVariants} className="mt-8">
