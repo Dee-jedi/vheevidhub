@@ -15,14 +15,19 @@ interface EnrolledData {
 }
 
 export function DashboardClient() {
-  const [enrolledData, setEnrolledData] = useState<EnrolledData | null>(null);
+  const [enrolledDataList, setEnrolledDataList] = useState<EnrolledData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     const data = localStorage.getItem('vheevid_academy_success');
     if (data) {
-      setEnrolledData(JSON.parse(data));
+      try {
+        const parsed = JSON.parse(data);
+        setEnrolledDataList(Array.isArray(parsed) ? parsed : [parsed]);
+      } catch (e) {
+        setEnrolledDataList([]);
+      }
     }
     setIsLoading(false);
   }, []);
@@ -35,12 +40,11 @@ export function DashboardClient() {
     );
   }
 
-  const enrolledCourse = enrolledData 
-    ? BOOTCAMPS.find((b) => b.id === enrolledData.courseId) 
-    : null;
+  const enrolledCourseIds = enrolledDataList.map(d => d.courseId);
+  const enrolledCourses = BOOTCAMPS.filter((b) => enrolledCourseIds.includes(b.id));
 
   const availableCourses = BOOTCAMPS.filter(
-    (b) => b.status === 'active' && b.id !== enrolledData?.courseId
+    (b) => b.status === 'active' && !enrolledCourseIds.includes(b.id)
   );
 
   return (
@@ -48,14 +52,14 @@ export function DashboardClient() {
       <div className="max-w-[900px] mx-auto px-5 sm:px-8">
         
         {/* Welcome Pill */}
-        {enrolledData && (
+        {enrolledDataList.length > 0 && (
           <motion.div 
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex justify-end mb-8"
           >
             <div className="px-5 py-2 bg-red-50 text-[#D62500] text-[14px] font-semibold rounded-full border border-red-100 shadow-sm">
-              Welcome, {enrolledData.firstName}
+              Welcome, {enrolledDataList[0].firstName}
             </div>
           </motion.div>
         )}
@@ -73,12 +77,15 @@ export function DashboardClient() {
             <h2 className="text-[24px] font-bold text-gray-900">My Bootcamps</h2>
           </div>
 
-          {enrolledCourse ? (
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-[24px] p-6 sm:p-8 shadow-sm border border-gray-100"
-            >
+          {enrolledCourses.length > 0 ? (
+            <div className="space-y-6">
+              {enrolledCourses.map((enrolledCourse) => (
+                <motion.div 
+                  key={enrolledCourse.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-white rounded-[24px] p-6 sm:p-8 shadow-sm border border-gray-100"
+                >
               <div className="flex items-center justify-between mb-4">
                 <span className="px-3 py-1 bg-green-50 text-green-600 text-[12px] font-semibold rounded-full flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
@@ -176,6 +183,8 @@ export function DashboardClient() {
                 </div>
               </div>
             </motion.div>
+            ))}
+            </div>
           ) : (
             <div className="bg-white rounded-[24px] p-12 text-center shadow-sm border border-gray-100 flex flex-col items-center justify-center">
               <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4 text-gray-400">

@@ -95,7 +95,16 @@ export function Navbar() {
   useEffect(() => {
     const successData = localStorage.getItem('vheevid_academy_success');
     if (successData) {
-      setHasPaid(true);
+      try {
+        const parsed = JSON.parse(successData);
+        if (Array.isArray(parsed)) {
+          if (parsed.length > 0) setHasPaid(true);
+        } else if (parsed && typeof parsed === 'object') {
+          setHasPaid(true);
+        }
+      } catch (e) {
+        setHasPaid(true);
+      }
     }
   }, []);
 

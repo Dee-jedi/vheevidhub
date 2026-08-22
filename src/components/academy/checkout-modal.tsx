@@ -56,14 +56,28 @@ export function CheckoutModal({ course, onClose }: CheckoutModalProps) {
   const initializePayment = usePaystackPayment(config);
 
   const onSuccess = async () => {
-    // Save to local storage for records
-    localStorage.setItem('vheevid_academy_success', JSON.stringify({
-      courseId: course.id,
-      title: course.title,
-      whatsappLink: course.whatsappLink,
-      firstName: firstName,
-      email: email
-    }));
+    // Save to local storage for records, handling multiple courses
+    const existingStr = localStorage.getItem('vheevid_academy_success');
+    let existingData: any[] = [];
+    if (existingStr) {
+      try {
+        const parsed = JSON.parse(existingStr);
+        existingData = Array.isArray(parsed) ? parsed : [parsed];
+      } catch (e) {
+        existingData = [];
+      }
+    }
+    
+    if (!existingData.some(d => d.courseId === course.id)) {
+      existingData.push({
+        courseId: course.id,
+        title: course.title,
+        whatsappLink: course.whatsappLink,
+        firstName: firstName,
+        email: email
+      });
+      localStorage.setItem('vheevid_academy_success', JSON.stringify(existingData));
+    }
     
     // Trigger Successful Enrollment API Call
     try {

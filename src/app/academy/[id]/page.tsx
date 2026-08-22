@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { BOOTCAMPS } from '@/data/bootcamps';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { JoinButton } from '@/components/academy/join-button';
+import { CourseEnrollmentCard } from '@/components/academy/course-enrollment-card';
 
 export function generateStaticParams() {
   return BOOTCAMPS.filter(b => b.status === 'active').map((bootcamp) => ({
@@ -80,33 +80,7 @@ export default async function BootcampDetail({ params }: { params: Promise<{ id:
         {/* Register Section */}
         <h2 className="text-[24px] font-bold text-[#111111] mb-6">Register</h2>
 
-        <div className="border border-gray-100 rounded-[24px] p-6 sm:p-10 bg-white shadow-[0_4px_24px_rgba(0,0,0,0.02)] relative overflow-hidden">
-          {/* Recommended Badge */}
-          <div className="absolute top-0 right-0 bg-[#D62500] text-white text-[11px] font-bold px-4 py-1.5 rounded-bl-[16px] tracking-wider">
-            RECOMMENDED
-          </div>
-
-          <div className="text-[13px] font-bold text-[#D62500] uppercase tracking-wider mb-4">
-            {bootcamp.title}
-          </div>
-          
-          <div className="text-[15px] text-gray-500 mb-6">
-            {bootcamp.duration || '6 weeks'}
-          </div>
-
-          <div className="mb-10">
-            <div className="text-[32px] sm:text-[40px] font-bold text-[#111111] leading-none mb-2">
-              ₦{bootcamp.price.toLocaleString()}
-            </div>
-            {bootcamp.usdPrice && (
-              <div className="text-[15px] text-gray-400">
-                or ${bootcamp.usdPrice}
-              </div>
-            )}
-          </div>
-
-          <JoinButton course={bootcamp} />
-        </div>
+        <CourseEnrollmentCard course={bootcamp} />
 
         {/* Curriculum Section */}
         {bootcamp.curriculum && bootcamp.curriculum.length > 0 && (
