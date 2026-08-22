@@ -93,19 +93,31 @@ export function Navbar() {
 
   // Check if user is enrolled
   useEffect(() => {
-    const successData = localStorage.getItem('vheevid_academy_success');
-    if (successData) {
-      try {
-        const parsed = JSON.parse(successData);
-        if (Array.isArray(parsed)) {
-          if (parsed.length > 0) setHasPaid(true);
-        } else if (parsed && typeof parsed === 'object') {
-          setHasPaid(true);
+    const checkEnrollment = () => {
+      const successData = localStorage.getItem('vheevid_academy_success');
+      if (successData) {
+        try {
+          const parsed = JSON.parse(successData);
+          if (Array.isArray(parsed)) {
+            setHasPaid(parsed.length > 0);
+          } else if (parsed && typeof parsed === 'object') {
+            setHasPaid(true);
+          } else {
+            setHasPaid(false);
+          }
+        } catch (e) {
+          setHasPaid(false);
         }
-      } catch (e) {
-        setHasPaid(true);
+      } else {
+        setHasPaid(false);
       }
-    }
+    };
+
+    checkEnrollment();
+    
+    // Listen for cross-tab storage changes (also helps if you clear storage via console)
+    window.addEventListener('storage', checkEnrollment);
+    return () => window.removeEventListener('storage', checkEnrollment);
   }, []);
 
   return (
