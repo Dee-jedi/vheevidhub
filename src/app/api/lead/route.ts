@@ -15,10 +15,18 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: true, message: 'Lead captured (simulated)' });
     }
 
+    let groupId = '';
+    if (courseId === 'graphic-design') {
+      groupId = '196128069906335171'; // Academy — Logo & Brand Identity Abandoned Checkout
+    } else if (courseId === 'automations') {
+      groupId = '196127940613768797'; // Academy — AI Abandoned Checkout
+    }
+
     const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
         'Authorization': `Bearer ${MAILERLITE_API_KEY}`
       },
       body: JSON.stringify({
@@ -29,7 +37,7 @@ export async function POST(req: Request) {
           payment_status: 'Abandoned',
           enrollment_status: 'Pending'
         },
-        groups: ['195426778472253245'] // "Academy Leads" Group ID
+        groups: groupId ? [groupId] : []
       })
     });
 
