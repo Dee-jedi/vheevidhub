@@ -1,9 +1,0 @@
-async function getGroups() {
-  const apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiNjBiMGJjZmE5M2I5MWYxYzAwZmJiYTVjNDQ4MjM1NWI3ZjQ1NjIwNGU1OWFmMzY0NDM1YTdmM2I2ZjhiYTAyNWFkYTk3ZjNiMzFkMTk2YjAiLCJpYXQiOjE3ODYzNzI5NDkuMzU4MTgxLCJuYmYiOjE3ODYzNzI5NDkuMzU4MTgzLCJleHAiOjQ5NDIwNDY1NDkuMzUxMDA3LCJzdWIiOiIyNTg1NTA2Iiwic2NvcGVzIjpbXX0.VuGA-adwjyMHbdBUqmbwIzdjDsDejoZzofg1XG8hf6czp8_7uWrPN1WK5Ece0KKAAkDzUtvOWkuYKlRRUHzbQkvr-NF_KX3QIvVGm5vVWPSHbLGrDTc1-vOFWoly43rbrUVfUdx8uH_EKnFScgMy_Y-BWcvk4v3RXcg9-MS3ooSfF19y7gv31NRwIs6nIOmFOY0zRhLb4_H5nX2ldvK2zS4-eugEBLkZ_t16uRuILvTSvSG4Gp6Mo3jEmXl3PluSeczvwcaV0BjczJoRD2-a0vr9P2m7OzrqH1aazQnR-ihmb6CMA3oL378aksOinFQjVnaouZGIKB6ShEXv5vN27A-arNE5I-XfXwfNp1jkxyG8Mvy44v3Xue5YYSkLq2X3e-EEd2ZuvLPd-nBR4G9NeS1LxXOfVbXY0SSiu1CadNxcnBDce6G3_y4XgDIpamY1PrR-eIVFiWK2izoXZBoIRsMuuuXp2G0u7--rlWq3MlJKiEtORyxaVrm0g8Et8m09CPZf67B2KqASyf8mcdpDD0F1mZsvmdEyEo1aJz3NYXs8t_PJgRcWeZ8mRhqfrmWytVITQOjuYbw6MuzOE4rq_Tx3NOT9BFXtUHgVsDa36QMD7cH3AC1lKw6SMq6M3On5MfSvBc4kxTcIMvfd2v8y1MFyX7bjJnh31nFNMSd3BNo";
-  const res = await fetch("https://connect.mailerlite.com/api/groups", {
-    headers: { "Authorization": `Bearer ${apiKey}` }
-  });
-  const data = await res.json();
-  console.log(JSON.stringify(data, null, 2));
-}
-getGroups();
