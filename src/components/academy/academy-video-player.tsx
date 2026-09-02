@@ -154,16 +154,16 @@ export function AcademyVideoPlayer({
 
       {/* Big Center Play Button when video is paused */}
       {!isPlaying && !centerIcon && (
-        <div className="absolute inset-0 flex items-center justify-center z-15 bg-black/30 backdrop-blur-[2px] transition-all">
+        <div className="absolute inset-0 flex items-center justify-center z-15 bg-black/25 backdrop-blur-[1px] transition-all">
           <button
             onClick={(e) => {
               e.stopPropagation();
               togglePlay();
             }}
-            className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#D62500] hover:bg-[#b81f00] text-white flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+            className="w-14 h-14 sm:w-18 sm:h-18 rounded-[16px] sm:rounded-[20px] bg-[#D62500] hover:bg-[#b81f00] text-white flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
             aria-label="Play video"
           >
-            <svg className="w-7 h-7 sm:w-9 sm:h-9 fill-current translate-x-0.5" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 sm:w-8 sm:h-8 fill-current translate-x-0.5" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg>
           </button>
