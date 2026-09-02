@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { usePaystackPayment } from 'react-paystack';
 import { useRouter } from 'next/navigation';
 
 interface Course {
@@ -17,6 +16,26 @@ interface CheckoutModalProps {
   onClose: () => void;
 }
 
+function loadPaystackScript(): Promise<boolean> {
+  return new Promise((resolve) => {
+    if (typeof window === 'undefined') return resolve(false);
+    if ((window as any).PaystackPop) return resolve(true);
+    const existing = document.getElementById('paystack-inline-js');
+    if (existing) {
+      existing.addEventListener('load', () => resolve(true));
+      existing.addEventListener('error', () => resolve(false));
+      return;
+    }
+    const script = document.createElement('script');
+    script.id = 'paystack-inline-js';
+    script.src = 'https://js.paystack.co/v1/inline.js';
+    script.async = true;
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });
+}
+
 export function CheckoutModal({ course, onClose }: CheckoutModalProps) {
   const router = useRouter();
   const [firstName, setFirstName] = useState('');
@@ -27,33 +46,11 @@ export function CheckoutModal({ course, onClose }: CheckoutModalProps) {
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
+    loadPaystackScript(); // preload script in background
     return () => {
       document.body.style.overflow = 'unset';
     };
   }, []);
-
-  const config = {
-    reference: (new Date()).getTime().toString(),
-    email: email,
-    amount: course.price * 100, // Paystack expects amount in kobo
-    publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || '',
-    metadata: {
-      custom_fields: [
-        {
-          display_name: "First Name",
-          variable_name: "first_name",
-          value: firstName
-        },
-        {
-          display_name: "Course",
-          variable_name: "course_id",
-          value: course.id
-        }
-      ]
-    }
-  };
-
-  const initializePayment = usePaystackPayment(config);
 
   const onSuccess = async () => {
     // Save to local storage for records, handling multiple courses
@@ -117,13 +114,50 @@ export function CheckoutModal({ course, onClose }: CheckoutModalProps) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ firstName, email, courseId: course.id })
       });
-      
-      // Proceed to Paystack Checkout
-      initializePayment({ onSuccess, onClose: onClosePayment });
     } catch (err) {
       console.error("Lead capture failed", err);
-      // We still proceed to payment even if lead capture API fails for some reason
-      initializePayment({ onSuccess, onClose: onClosePayment });
+    }
+
+    // Ensure Paystack popup script is loaded
+    const isLoaded = await loadPaystackScript();
+    if (!isLoaded || !(window as any).PaystackPop) {
+      setError('Payment gateway could not be loaded. Please check your internet connection.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const handler = (window as any).PaystackPop.setup({
+        key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || '',
+        email: email,
+        amount: course.price * 100, // amount in kobo
+        ref: (new Date()).getTime().toString(),
+        metadata: {
+          custom_fields: [
+            {
+              display_name: "First Name",
+              variable_name: "first_name",
+              value: firstName
+            },
+            {
+              display_name: "Course",
+              variable_name: "course_id",
+              value: course.id
+            }
+          ]
+        },
+        callback: (response: any) => {
+          onSuccess();
+        },
+        onClose: () => {
+          onClosePayment();
+        }
+      });
+      handler.openIframe();
+    } catch (err) {
+      console.error("Paystack launch failed", err);
+      setError('Failed to open payment modal. Please try again.');
+      setIsSubmitting(false);
     }
   };
 

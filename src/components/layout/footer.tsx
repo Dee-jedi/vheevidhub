@@ -18,7 +18,7 @@ const staggerContainer: Variants = {
 export function Footer() {
   const pathname = usePathname();
   
-  if (pathname === '/contact' || pathname === '/services') {
+  if (pathname === '/contact' || pathname === '/services' || pathname?.startsWith('/academy')) {
     return null;
   }
 

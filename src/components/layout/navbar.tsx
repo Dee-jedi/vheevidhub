@@ -67,7 +67,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hasPaid, setHasPaid] = useState(false);
   const pathname = usePathname();
-  const isDarkHeroPage = pathname === '/services' || pathname === '/academy';
+  const isDarkHeroPage = pathname === '/services';
 
   // Lock body scroll when drawer is open
   useEffect(() => {
@@ -120,16 +120,21 @@ export function Navbar() {
     return () => window.removeEventListener('storage', checkEnrollment);
   }, []);
 
+  const isAcademyPage = pathname === '/academy';
+
   return (
     <>
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-[0_1px_0_0_rgba(0,0,0,0.05)] ${scrolled
-          ? 'bg-white/80 backdrop-blur-xl'
-          : 'bg-transparent'
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isAcademyPage
+            ? 'bg-[#FFF8F5] border-b border-[#ECE4E0]'
+            : scrolled
+            ? 'bg-white/80 backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,0,0,0.05)]'
+            : 'bg-transparent'
+        }`}
       >
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
           {/* Logo */}
