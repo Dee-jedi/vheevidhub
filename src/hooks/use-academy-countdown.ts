@@ -9,15 +9,18 @@ export interface TimeLeft {
   seconds: string;
 }
 
-// Fixed Global Early Bird Target Date (Synchronized across all devices worldwide)
-// Classes begin September 23, 2026; Early bird closes September 12, 2026 23:59:59 WAT (UTC+1)
-const FIXED_TARGET_TIMESTAMP = new Date('2026-09-12T23:59:59+01:00').getTime();
+// 2-Day Cycle Duration in Milliseconds (48 Hours = 172,800,000 ms)
+const CYCLE_DURATION_MS = 2 * 24 * 60 * 60 * 1000;
+
+// Universal Fixed Anchor Epoch (WAT UTC+1)
+// Ensures every device across the world computes the exact same 2-day cycle in real-time
+const ANCHOR_TIMESTAMP = new Date('2026-09-01T00:00:00+01:00').getTime();
 
 export function useAcademyCountdown() {
   const [mounted, setMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
-    days: '02',
-    hours: '03',
+    days: '01',
+    hours: '23',
     minutes: '59',
     seconds: '57',
   });
@@ -26,21 +29,15 @@ export function useAcademyCountdown() {
     setMounted(true);
 
     const calculateTimeLeft = (): TimeLeft => {
-      const difference = FIXED_TARGET_TIMESTAMP - Date.now();
+      const now = Date.now();
+      const rawElapsed = (now - ANCHOR_TIMESTAMP) % CYCLE_DURATION_MS;
+      const elapsed = rawElapsed >= 0 ? rawElapsed : rawElapsed + CYCLE_DURATION_MS;
+      const remaining = CYCLE_DURATION_MS - elapsed;
 
-      if (difference <= 0) {
-        return {
-          days: '00',
-          hours: '00',
-          minutes: '00',
-          seconds: '00',
-        };
-      }
-
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((difference / 1000 / 60) % 60);
-      const seconds = Math.floor((difference / 1000) % 60);
+      const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((remaining / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((remaining / (1000 * 60)) % 60);
+      const seconds = Math.floor((remaining / 1000) % 60);
 
       return {
         days: String(days).padStart(2, '0'),

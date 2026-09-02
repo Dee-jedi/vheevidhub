@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useAcademyCountdown } from '@/hooks/use-academy-countdown';
+import { AcademyVideoPlayer } from './academy-video-player';
 
 export function AcademyHero() {
   const { mounted, timeLeft } = useAcademyCountdown();
@@ -139,21 +139,18 @@ export function AcademyHero() {
 
         </div>
 
-        {/* ================= SHOWCASE IMAGE ================= */}
+        {/* ================= SHOWCASE VIDEO ================= */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-10 sm:mt-14 max-w-[960px] mx-auto w-full"
         >
-          <div className="relative w-full rounded-[1px] overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] border border-[#D5D0CB] bg-white">
-            <Image
-              src="/Images/acad-hero-recreated.jpg"
-              alt="Vheevid Hub Academy — Master Automation & Design"
-              width={1198}
-              height={646}
-              priority
-              className="w-full h-auto object-cover rounded-[1px]"
+          <div className="relative w-full aspect-[1198/646] rounded-[1px] overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] border border-[#D5D0CB]">
+            <AcademyVideoPlayer
+              src="/Videos/acad-hero.mp4"
+              poster="/Images/acad-hero-recreated.jpg"
+              containerClassName="absolute inset-0 w-full h-full rounded-[1px]"
             />
           </div>
         </motion.div>

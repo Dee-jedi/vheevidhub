@@ -3,23 +3,19 @@
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { AcademyVideoPlayer } from './academy-video-player';
 
-interface ShowcaseItem {
-  image: string;
-  caption: string;
-}
-
-const PEOPLE_ITEMS: ShowcaseItem[] = [
-  { image: '/Images/people-1.png', caption: 'ALEX R. — FREELANCER' },
-  { image: '/Images/people-2.png', caption: 'ALEX R. — FREELANCER' },
-  { image: '/Images/people-3.png', caption: 'ALEX R. — FREELANCER' },
-  { image: '/Images/people-4.png', caption: 'ALEX R. — FREELANCER' },
-  { image: '/Images/people-5.png', caption: 'ALEX R. — FREELANCER' },
-  { image: '/Images/people-6.png', caption: 'ALEX R. — FREELANCER' },
+const PEOPLE_IMAGES: string[] = [
+  '/Images/people-1.png',
+  '/Images/people-2.png',
+  '/Images/people-3.png',
+  '/Images/people-4.png',
+  '/Images/people-5.png',
+  '/Images/people-6.png',
 ];
 
 export function CommunityShowcase() {
-  const [selectedImage, setSelectedImage] = useState<{ src: string; caption: string } | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(1);
 
@@ -34,8 +30,8 @@ export function CommunityShowcase() {
     const progress = Math.min(1, Math.max(0, target.scrollLeft / maxScroll));
     setScrollProgress(progress);
     const index = Math.min(
-      PEOPLE_ITEMS.length,
-      Math.max(1, Math.round((target.scrollLeft / maxScroll) * (PEOPLE_ITEMS.length - 1)) + 1)
+      PEOPLE_IMAGES.length,
+      Math.max(1, Math.round((target.scrollLeft / maxScroll) * (PEOPLE_IMAGES.length - 1)) + 1)
     );
     setCurrentIndex(index);
   };
@@ -65,28 +61,19 @@ export function CommunityShowcase() {
     <section className="w-full bg-[#FFF8F5] py-16 sm:py-24 lg:py-28 font-[family-name:var(--font-dm-sans)] overflow-hidden">
       <div className="mx-auto max-w-[1100px] px-5 sm:px-8 lg:px-10">
         
-        {/* ================= LARGE FEATURED IMAGE ================= */}
+        {/* ================= LARGE FEATURED VIDEO ================= */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col group cursor-zoom-in"
-          onClick={() =>
-            setSelectedImage({
-              src: '/Images/test-large.png',
-              caption: 'GLIMPSE INTO OUR AUTOMATION CLASSES',
-            })
-          }
+          className="flex flex-col"
         >
-          <div className="relative w-full aspect-[16/7] sm:aspect-[21/8.5] rounded-[18px] sm:rounded-[24px] overflow-hidden border border-[#E5E0DB] shadow-[0_4px_24px_rgba(0,0,0,0.04)] bg-neutral-900 group-hover:shadow-xl group-hover:border-[#D5D0CB] transition-all duration-300">
-            <Image
-              src="/Images/test-large.png"
-              alt="Glimpse into our automation classes"
-              fill
-              className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-500 ease-out"
-              sizes="(max-width: 1100px) 100vw, 1100px"
-              priority
+          <div className="relative w-full aspect-[16/7] sm:aspect-[21/8.5] rounded-[18px] sm:rounded-[24px] overflow-hidden border border-[#E5E0DB] shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
+            <AcademyVideoPlayer
+              src="/Videos/acad-large.mp4"
+              poster="/Images/test-large.png"
+              containerClassName="absolute inset-0 w-full h-full rounded-[18px] sm:rounded-[24px]"
             />
           </div>
           <span className="text-[10px] sm:text-[11px] font-normal text-[#5D4039] uppercase tracking-[0.14em] mt-3">
@@ -110,7 +97,7 @@ export function CommunityShowcase() {
           onScroll={handleScroll}
           className="-mx-5 px-5 sm:mx-0 sm:px-0 flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 overflow-x-auto sm:overflow-visible snap-x snap-mandatory hide-scrollbar no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pb-3 sm:pb-0"
         >
-          {PEOPLE_ITEMS.map((item, index) => (
+          {PEOPLE_IMAGES.map((imgSrc, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -118,23 +105,18 @@ export function CommunityShowcase() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: index * 0.07 }}
               className="w-[280px] sm:w-auto shrink-0 snap-center flex flex-col group cursor-zoom-in"
-              onClick={() => setSelectedImage({ src: item.image, caption: item.caption })}
+              onClick={() => setSelectedImage(imgSrc)}
             >
               {/* Image Container */}
               <div className="relative w-full aspect-[4/3] rounded-[16px] sm:rounded-[20px] overflow-hidden border border-[#E5E0DB] shadow-[0_4px_20px_rgba(0,0,0,0.04)] bg-neutral-900 group-hover:shadow-xl group-hover:border-[#D5D0CB] transition-all duration-300">
                 <Image
-                  src={item.image}
-                  alt={`Community member - ${item.caption}`}
+                  src={imgSrc}
+                  alt={`Bayero University community moment ${index + 1}`}
                   fill
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                   sizes="(max-width: 640px) 280px, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
-
-              {/* Caption */}
-              <span className="text-[10px] sm:text-[11px] font-normal text-[#5D4039] uppercase tracking-[0.14em] mt-3">
-                {item.caption}
-              </span>
             </motion.div>
           ))}
         </div>
@@ -153,7 +135,7 @@ export function CommunityShowcase() {
           </div>
 
           <span className="text-[15px] font-medium text-[#5D4039]/40 tracking-tight w-6 text-left font-mono">
-            {String(PEOPLE_ITEMS.length).padStart(2, '0')}
+            {String(PEOPLE_IMAGES.length).padStart(2, '0')}
           </span>
         </div>
 
@@ -193,18 +175,14 @@ export function CommunityShowcase() {
               className="relative max-w-[800px] w-full max-h-[90vh] flex flex-col items-center bg-[#1F1B19] rounded-[20px] overflow-hidden shadow-2xl border border-white/10"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative w-full h-[60vh] sm:h-[70vh] bg-black">
+              <div className="relative w-full h-[60vh] sm:h-[75vh] bg-black">
                 <Image
-                  src={selectedImage.src}
-                  alt={selectedImage.caption}
+                  src={selectedImage}
+                  alt="Bayero University community moment"
                   fill
                   className="object-contain"
                   priority
                 />
-              </div>
-
-              <div className="w-full p-4 sm:p-5 bg-[#1F1B19] border-t border-white/10 flex items-center justify-between text-white/70 text-[11px] font-normal uppercase tracking-wider">
-                <span>{selectedImage.caption}</span>
               </div>
             </motion.div>
           </motion.div>

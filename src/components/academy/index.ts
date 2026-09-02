@@ -10,4 +10,4 @@ export * from './invest-in-career';
 export * from './checkout-modal';
 export * from './course-enrollment-card';
 export * from './join-button';
-
+export * from './academy-video-player';
