@@ -9,7 +9,9 @@ export interface TimeLeft {
   seconds: string;
 }
 
-const STORAGE_KEY = 'vheevid_academy_early_bird_target';
+// Fixed Global Early Bird Target Date (Synchronized across all devices worldwide)
+// Classes begin September 23, 2026; Early bird closes September 12, 2026 23:59:59 WAT (UTC+1)
+const FIXED_TARGET_TIMESTAMP = new Date('2026-09-12T23:59:59+01:00').getTime();
 
 export function useAcademyCountdown() {
   const [mounted, setMounted] = useState(false);
@@ -23,24 +25,8 @@ export function useAcademyCountdown() {
   useEffect(() => {
     setMounted(true);
 
-    let targetTime = localStorage.getItem(STORAGE_KEY);
-
-    if (!targetTime) {
-      // 2 days, 3 hours, 59 minutes, 57 seconds from now
-      const now = new Date();
-      const target = new Date(
-        now.getTime() +
-          2 * 24 * 60 * 60 * 1000 +
-          3 * 60 * 60 * 1000 +
-          59 * 60 * 1000 +
-          57 * 1000
-      );
-      targetTime = target.toISOString();
-      localStorage.setItem(STORAGE_KEY, targetTime);
-    }
-
     const calculateTimeLeft = (): TimeLeft => {
-      const difference = new Date(targetTime as string).getTime() - new Date().getTime();
+      const difference = FIXED_TARGET_TIMESTAMP - Date.now();
 
       if (difference <= 0) {
         return {
